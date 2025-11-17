@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
+    <a href="index.html#main-content" class="skip-link">Skip to main content</a>
     <header class="site-header">
       <nav class="nav">
         <a class="brand" href="index.html">Q2 Rentals</a>
         <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+        <button class="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">🌗</button>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html" aria-current="page">About</a></li>
@@ -22,7 +24,7 @@
       </nav>
     </header>
 
-    <main class="container">
+    <main id="main-content" class="container">
       <section class="about-hero">
         <h1>About Q2 Rentals</h1>
         <p>We provide clean, reliable Audi Q2 rentals with friendly service and transparent pricing.</p>
@@ -51,5 +53,10 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <div class="contact-fab" aria-label="Quick contact">
+      <a href="tel:+15551234567" aria-label="Call us">📞</a>
+      <a href="https://wa.me/15551234567" target="_blank" rel="noopener" aria-label="WhatsApp chat">💬</a>
+      <a href="mailto:rentals@example.com" aria-label="Email us">✉️</a>
+    </div>
   </body>
 </html>

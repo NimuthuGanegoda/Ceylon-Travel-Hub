@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
+    <a href="index.html#main-content" class="skip-link">Skip to main content</a>
     <header class="site-header">
       <nav class="nav">
         <a class="brand" href="index.html">Q2 Rentals</a>
         <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+        <button class="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">🌗</button>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
@@ -22,7 +24,7 @@
       </nav>
     </header>
 
-    <main class="container contact">
+    <main id="main-content" class="container contact">
       <section>
         <h1>Contact Us</h1>
         <p>We're available by phone, WhatsApp, or email. Send booking requests via the form on the home page.</p>
@@ -42,6 +44,38 @@
           </a>
         </div>
       </section>
+
+      <section class="map" aria-labelledby="map-heading">
+        <h2 id="map-heading">Find Our Location</h2>
+        <p>Use the map below to locate our pickup point. Replace with your exact address coordinates.</p>
+        <div class="map-embed">
+    <iframe loading="lazy" title="Google Map of rental location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.9952799849464!2d-73.98654372377925!3d40.75800127138754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855d844d2fb%3A0x235f5f7d9f3f3af4!2sTimes%20Square!5e0!3m2!1sen!2sus!4v0000000000000" 
+                  referrerpolicy="no-referrer-when-downgrade" 
+                  aria-label="Map showing rental location"></iframe>
+        </div>
+      </section>
+
+      <section aria-labelledby="quick-contact-heading">
+        <h2 id="quick-contact-heading">Quick Contact Form</h2>
+        <p>Send us a quick message — we usually reply within a few hours.</p>
+        <form class="contact-form" action="https://formsubmit.co/YOUREMAIL@example.com" method="POST">
+          <input type="hidden" name="_subject" value="New Quick Contact Message" />
+          <div class="field">
+            <label for="qc-name">Name</label>
+            <input id="qc-name" name="name" type="text" required placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="qc-email">Email</label>
+            <input id="qc-email" name="email" type="email" required placeholder="you@example.com" />
+          </div>
+            <div class="field">
+            <label for="qc-message">Message</label>
+            <textarea id="qc-message" name="message" rows="4" required placeholder="How can we help?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </section>
     </main>
 
     <footer class="site-footer">
@@ -51,5 +85,10 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <div class="contact-fab" aria-label="Quick contact">
+      <a href="tel:+15551234567" aria-label="Call us">📞</a>
+      <a href="https://wa.me/15551234567" target="_blank" rel="noopener" aria-label="WhatsApp chat">💬</a>
+      <a href="mailto:rentals@example.com" aria-label="Email us">✉️</a>
+    </div>
   </body>
 </html>

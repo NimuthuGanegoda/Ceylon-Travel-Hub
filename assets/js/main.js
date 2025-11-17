@@ -8,24 +8,23 @@ if (navToggle && navLinks) {
   });
 }
 
-// Year in footer: set for any element whose id starts with "year"
-const yearEls = document.querySelectorAll('[id^="year"]');
-const yearStr = String(new Date().getFullYear());
-yearEls.forEach(el => { el.textContent = yearStr; });
+// Year in footer
+const y = document.getElementById('year');
+if (y) y.textContent = String(new Date().getFullYear());
 
-// Simple lightbox (vanilla JS)
+// Simple lightbox
 const lightbox = document.getElementById('lightbox');
-const lbImg = lightbox && lightbox.querySelector('img');
-const lbCap = lightbox && lightbox.querySelector('.lightbox-caption');
-const lbClose = lightbox && lightbox.querySelector('.lightbox-close');
+const lbImg = lightbox?.querySelector('img');
+const lbCap = lightbox?.querySelector('.lightbox-caption');
+const lbClose = lightbox?.querySelector('.lightbox-close');
 
-document.querySelectorAll('.glightbox').forEach(link => {
-  link.addEventListener('click', (e) => {
+document.querySelectorAll('.glightbox').forEach(a => {
+  a.addEventListener('click', (e) => {
     e.preventDefault();
-    const href = link.href || link.getAttribute('href');
-    const cap = link.getAttribute('data-caption') || '';
+    const href = (a as HTMLAnchorElement).href;
+    const cap = (a as HTMLAnchorElement).getAttribute('data-caption') || '';
     if (lightbox && lbImg && lbCap) {
-      lbImg.src = href;
+      (lbImg as HTMLImageElement).src = href;
       lbCap.textContent = cap;
       lightbox.classList.remove('hidden');
     }
