@@ -188,10 +188,13 @@ function renderPrices(){
     const rate = rates[cur] || 1;
     const val = base * rate;
     // Show number only; the symbol is shown separately in .currency-symbol
+    // Decide decimals: explicit data-decimals overrides; else 2 if small value, otherwise 0
+    const decimalsAttr = el.getAttribute('data-decimals');
+    const decimals = decimalsAttr !== null ? Math.max(0, parseInt(decimalsAttr,10)||0) : (val < 10 ? 2 : 0);
     try{
-      el.textContent = new Intl.NumberFormat(undefined, {style:'decimal',maximumFractionDigits:0}).format(val);
+      el.textContent = new Intl.NumberFormat(undefined, {style:'decimal',maximumFractionDigits:decimals,minimumFractionDigits:decimals}).format(val);
     }catch(e){
-      el.textContent = Math.round(val).toString();
+      el.textContent = (decimals > 0 ? val.toFixed(decimals) : Math.round(val).toString());
     }
   });
   // Update symbol elements (simple visual)

@@ -37,9 +37,26 @@ The booking form posts to FormSubmit so you receive requests by email without a 
 If you prefer WhatsApp: replace the form with a CTA link like `https://wa.me/<number>?text=...`.
 
 ## Deploy (GitHub Pages)
+
+Two supported options. Use whichever you prefer.
+
+Option A — Deploy from a branch (simplest)
+
 1. Push this repo to GitHub.
-2. In your repository settings → Pages → Set source to `main` and folder to `/ (root)`.
-3. The site will be live at `https://<your-user>.github.io/<repo>/`.
+2. Settings → Pages → Build and deployment → Source: "Deploy from a branch".
+3. Branch: `gh-pages`, Folder: `/ (root)`, then Save.
+4. Your site will publish at `https://<your-user>.github.io/<repo>/`.
+
+Option B — Deploy via GitHub Actions (already included)
+
+1. Settings → Pages → Build and deployment → Source: "GitHub Actions", then Save.
+2. Push to `main` to trigger the workflow `.github/workflows/pages.yml`.
+3. Check the Actions tab for the Pages deployment run.
+
+Troubleshooting
+
+- 404 after deploy? Ensure Pages is enabled (Settings → Pages) and the correct source is selected.
+- Custom domain: Add your domain in Settings → Pages and create a `CNAME` DNS record pointing to `<your-user>.github.io`.
 
 Alternatively host on Netlify, Vercel, Cloudflare Pages, or any static host.
 
@@ -48,12 +65,14 @@ Alternatively host on Netlify, Vercel, Cloudflare Pages, or any static host.
 - No tracking or analytics included by default.
 
 ## Structure
-```
+
+```text
 index.html
 assets/
-	css/styles.css
-	js/main.js
+  css/styles.css
+  js/main.js
 ```
 
 ## License
+
 This website template is provided as‑is for your use. Replace imagery and content with your own.
