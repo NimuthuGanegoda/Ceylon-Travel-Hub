@@ -36,8 +36,12 @@ if (themeBtn) {
   });
 }
 
-// Active nav link highlighting by section intersection (only if internal hash links exist)
-const sectionIds = ['car','pricing','gallery','book','contact'];
+// Active nav link highlighting by section intersection (derive from internal hash links)
+const sectionIds = Array.from((navLinks || document).querySelectorAll('a[href^="#"]'))
+  .map(a => a.getAttribute('href'))
+  .filter(Boolean)
+  .map(h => h.replace('#',''))
+  .filter(id => id && document.getElementById(id));
 const observerOptions = {root:null,rootMargin:'0px 0px -60% 0px',threshold:0};
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
