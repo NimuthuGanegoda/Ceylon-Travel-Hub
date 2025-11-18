@@ -227,8 +227,9 @@ if (bookingForm){
 /* ---- Vehicles dynamic loader + booking selection integration ---- */
 const vehicleGrid = document.getElementById('vehicle-grid');
 const vehiclesNote = document.getElementById('vehicles-note');
-const vehicleSelect = document.getElementById('vehicle-select');
-const vehicleField = document.getElementById('vehicle-field');
+// Vehicle select removed (booking-first workflow). Keep graceful handling.
+const vehicleSelect = null;
+const vehicleField = null;
 
 function attachVehicleBookHandlers(){
   const links = document.querySelectorAll('[data-vehicle-id]');
@@ -270,21 +271,8 @@ async function loadVehicles(){
     });
     if (vehiclesNote) vehiclesNote.textContent = '';
 
-    if (vehicleSelect){
-      vehicleSelect.innerHTML = '';
-      available.forEach(v => {
-        const opt = document.createElement('option');
-        opt.value = v.id;
-        opt.textContent = v.name;
-        vehicleSelect.appendChild(opt);
-      });
-      if (available.length === 1 && vehicleField){
-        vehicleField.classList.add('hidden-inline');
-        vehicleSelect.value = available[0].id;
-      } else if (available.length > 1 && vehicleField){
-        vehicleField.classList.remove('hidden-inline');
-      }
-    }
+    // Vehicle selection deferred; no select population required.
+    // Vehicle selection absent; nothing to adjust.
     attachVehicleBookHandlers();
   }catch(err){
     console.warn('Vehicle load failed', err);
@@ -296,3 +284,72 @@ async function loadVehicles(){
   }
 }
 loadVehicles();
+
+// Hero video removed; no toggle logic required.
+
+/* Testimonials loader and local preview */
+const testimonialsGrid = document.getElementById('testimonials-grid');
+const testimonialForm = document.getElementById('testimonial-form');
+
+function renderTestimonials(list){
+  if (!testimonialsGrid) return;
+  testimonialsGrid.innerHTML = '';
+  list.forEach(item => {
+    const card = document.createElement('article');
+    card.className = 'testimonial-card';
+    card.setAttribute('role','listitem');
+    const initials = (item.name||'').trim().split(/\s+/).map(p=>p[0]).slice(0,2).join('').toUpperCase();
+    const stars = '★'.repeat(Math.max(1,Math.min(5, item.rating||5)));
+    card.innerHTML = `
+      <div class="testimonial-header">
+        <div class="t-avatar" aria-hidden="true">${initials||'?'}</div>
+        <div class="t-meta">
+          <p class="t-name">${item.name || 'Anonymous'}</p>
+          <p class="t-country">${(item.country||'').toUpperCase()}</p>
+        </div>
+      </div>
+      <div class="t-rating" aria-label="Rating: ${stars.length} out of 5">${stars}</div>
+      <p class="t-message">${item.message}</p>
+    `;
+    testimonialsGrid.appendChild(card);
+  });
+}
+
+async function loadTestimonials(){
+  if (!testimonialsGrid) return;
+  try{
+    const resp = await fetch('assets/data/testimonials.json');
+    if (!resp.ok) throw new Error('network');
+    const data = await resp.json();
+    // Merge with any locally stored previews
+    const previews = JSON.parse(localStorage.getItem('testimonial_previews')||'[]');
+    renderTestimonials([...previews, ...data]);
+  }catch(err){
+    testimonialsGrid.innerHTML = '<p class="fineprint">Testimonials unavailable right now.</p>';
+  }
+}
+loadTestimonials();
+
+if (testimonialForm){
+  testimonialForm.addEventListener('submit', () => {
+    try{
+      const preview = {
+        name: document.getElementById('t-name').value,
+        country: document.getElementById('t-country').value,
+        rating: parseInt(document.getElementById('t-rating').value,10)||5,
+        message: document.getElementById('t-message').value,
+        date: new Date().toISOString().slice(0,10),
+        permission: document.getElementById('t-permission').value
+      };
+      const previews = JSON.parse(localStorage.getItem('testimonial_previews')||'[]');
+      previews.unshift(preview);
+      localStorage.setItem('testimonial_previews', JSON.stringify(previews.slice(0,5)));
+      // Re-render with new preview on top
+      loadTestimonials();
+      const note = document.getElementById('t-note');
+      if (note) note.textContent = 'Submitted. Your testimonial appears locally pending review.';
+    }catch(e){
+      console.warn('Preview store failed', e);
+    }
+  });
+}

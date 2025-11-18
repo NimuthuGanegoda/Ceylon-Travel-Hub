@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Audi Q2 2018 Rental — Q2 Lanka Drives</title>
-    <meta name="description" content="Rent our Audi Q2 2018 (1.4 TFSI, S tronic) — clean, comfortable compact SUV for Sri Lanka travel. Flexible pricing. Book now." />
-    <meta property="og:title" content="Audi Q2 2018 Rental — Q2 Lanka Drives" />
-    <meta property="og:description" content="Audi Q2 2018 (1.4 TFSI • S tronic). Clean, comfortable compact SUV. Flexible pricing and easy booking." />
+    <title>Ceylon Drive Hub — Book First, Choose Vehicle Later</title>
+    <meta name="description" content="Ceylon Drive Hub: Secure your rental dates now. Choose from current and upcoming vehicles during confirmation." />
+    <meta property="og:title" content="Ceylon Drive Hub — Book First" />
+    <meta property="og:description" content="Reserve dates now. Choose from Audi Q2 2018 and upcoming vehicles after confirmation." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=1200&auto=format&fit=crop" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
     <div id="scroll-progress" aria-hidden="true"></div>
     <header class="site-header">
       <nav class="nav">
-        <a class="brand" href="#">Q2 Lanka Drives</a>
+        <a class="brand" href="#">Ceylon Drive Hub</a>
         <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
         <button class="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">🌗</button>
         <label for="currency-select" class="sr-only">Currency</label>
@@ -40,6 +40,7 @@
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#book">Book</a></li>
           <li><a href="#map">Map</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -48,8 +49,8 @@
     <main id="main-content">
       <section class="hero-full" id="home">
         <div class="hero-content">
-          <h1>More Vehicles Coming Soon</h1>
-          <p>Audi Q2 2018 available now • Additional models arriving shortly</p>
+          <h1>Book First. Choose Vehicle Later.</h1>
+          <p>Reserve your dates now — finalize the exact vehicle (Audi Q2 2018 or future additions) during confirmation.</p>
           <ul class="feature-badges" aria-label="Key features">
             <li>150 PS Turbo</li>
             <li>Virtual Cockpit</li>
@@ -360,7 +361,7 @@
         <div class="container">
           <h2>Book Your Dates</h2>
           <form class="booking-form" action="https://formsubmit.co/YOUREMAIL@example.com" method="POST">
-            <input type="hidden" name="_subject" value="New Audi Q2 Booking" />
+            <input type="hidden" name="_subject" value="New Booking — Ceylon Drive Hub" />
             <input type="hidden" name="_captcha" value="false" />
             <p class="form-note" aria-live="polite"></p>
             <div class="form-grid">
@@ -396,12 +397,7 @@
                 <label for="drop-location">Return Location</label>
                 <input id="drop-location" name="return_location" type="text" placeholder="City / Address" />
               </div>
-              <div class="field" id="vehicle-field">
-                <label for="vehicle-select">Vehicle</label>
-                <select id="vehicle-select" name="vehicle" aria-label="Select vehicle">
-                  <option value="audi-q2-2018-14-tfsi" selected>Audi Q2 2018 1.4 TFSI</option>
-                </select>
-              </div>
+              <input type="hidden" name="vehicle_selection" value="pending" />
               <div class="field field-full">
                 <label for="service">Service Type</label>
                 <select id="service" name="service">
@@ -465,7 +461,7 @@
           </a>
         </div>
         <form class="contact-form" action="https://formsubmit.co/YOUREMAIL@example.com" method="POST" style="margin-top:1.2rem">
-          <input type="hidden" name="_subject" value="New Message from Q2 Lanka Drives" />
+          <input type="hidden" name="_subject" value="New Message from Ceylon Drive Hub" />
           <div class="field">
             <label for="hc-name">Name</label>
             <input id="hc-name" name="name" type="text" required placeholder="Your name" />
@@ -485,8 +481,8 @@
 
     <footer class="site-footer">
       <div class="container">
-        <p>© <span id="year"></span> Q2 Lanka Drives. All rights reserved.</p>
-        <p class="footnote">Unsplash images shown for demo. Replace with your own Audi Q2 photos.</p>
+        <p>© <span id="year"></span> Ceylon Drive Hub. All rights reserved.</p>
+        <p class="footnote">Media are placeholders (Unsplash / Pexels video). Replace with your licensed Sri Lanka footage before production.</p>
       </div>
     </footer>
 
