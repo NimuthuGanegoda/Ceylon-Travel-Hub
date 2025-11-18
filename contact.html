@@ -60,8 +60,10 @@
         <h2 id="quick-contact-heading">Quick Contact Form</h2>
         <p>Send us a quick message — we usually reply within a few hours.</p>
         <p class="form-note">Note: International visitors who plan to drive should confirm licence requirements (IDP may be required for self-drive).</p>
-        <form class="contact-form" action="https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec" method="POST">
+        <form class="contact-form" action="https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec" method="POST" data-ajax="true">
           <input type="hidden" name="type" value="contact" />
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" />
+          <p class="form-note" aria-live="polite"></p>
           <div class="field">
             <label for="qc-name">Name</label>
             <input id="qc-name" name="name" type="text" required placeholder="Your name" />

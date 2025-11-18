@@ -224,6 +224,59 @@ if (bookingForm){
   });
 }
 
+/* ---- Generic AJAX submission for Apps Script forms (mobile friendly) ---- */
+function setupAjaxForms(){
+  const forms = document.querySelectorAll('form[data-ajax="true"]');
+  forms.forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      // If earlier validation prevented default, skip ajax
+      if (e.defaultPrevented) return;
+      const action = form.getAttribute('action') || '';
+      if (!/script.google.com\/macros/.test(action)) return; // only intercept Apps Script
+      e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+      const noteEl = form.querySelector('.form-note') || form.querySelector('#t-note');
+      if (noteEl) noteEl.textContent = 'Submitting…';
+      if (submitBtn){
+        submitBtn.disabled = true;
+        submitBtn.dataset.originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Please wait…';
+      }
+      try{
+        const fd = new FormData(form);
+        // Basic spam check: honeypot
+        if (fd.get('_honey')){
+          if (noteEl) noteEl.textContent = 'Submission blocked (spam detected).';
+          submitBtn && (submitBtn.disabled = false, submitBtn.textContent = submitBtn.dataset.originalText);
+          return;
+        }
+        const res = await fetch(action, {method:'POST', body:fd});
+        const isJson = res.headers.get('content-type')?.includes('application/json');
+        let payload = {};
+        if (isJson){
+          payload = await res.json();
+        } else {
+          payload = {status: res.ok ? 'ok' : 'error'};
+        }
+        if (payload.status === 'ok'){
+          if (noteEl) noteEl.textContent = 'Submitted successfully. We will respond soon.';
+          form.reset();
+        } else {
+          if (noteEl) noteEl.textContent = 'Submission error. Please retry.';
+        }
+      }catch(err){
+        if (noteEl) noteEl.textContent = 'Network error. Check connection and retry.';
+      }finally{
+        if (submitBtn){
+          submitBtn.disabled = false;
+          submitBtn.textContent = submitBtn.dataset.originalText || 'Submit';
+        }
+      }
+    });
+  });
+}
+setupAjaxForms();
+
 /* ---- Vehicles dynamic loader + booking selection integration ---- */
 const vehicleGrid = document.getElementById('vehicle-grid');
 const vehiclesNote = document.getElementById('vehicles-note');
