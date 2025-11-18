@@ -32,9 +32,10 @@ python3 -m http.server 8080
 - Images: replace Unsplash placeholders (hero + gallery) with licensed media.
 - Colors/Theme: adjust CSS variables in `assets/css/styles.css` under `:root` and Apple variant block.
 - Testimonials: seed initial data in `assets/data/testimonials.json` or remove if not needed.
+- Global Background: add/remove the `with-bg` class on `<body>` to enable the scenic background layer. Change the Unsplash URL in `styles.css` (`body.with-bg`).
 
 ## Booking / Contact / Testimonial Forms (Google Sheets + Email)
-Forms are configured to post to a Google Apps Script Web App (placeholder `https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec`). This lets you append submissions to a Google Sheet and send yourself an email notification — no external service required.
+Forms are configured to post to a Google Apps Script Web App (placeholder `https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec`). The front‑end already intercepts these submissions with a generic AJAX handler (see `assets/js/main.js`) so users stay on the page and get inline success/error messages. You can remove the `data-ajax="true"` attribute to fall back to default POST behavior.
 
 ### Setup Steps
 1. Create a new Google Sheet named `Ceylon Drive Hub`.
@@ -103,23 +104,13 @@ function doPost(e) {
 
 ### Front-End Notes
 - Hidden `<input name="type" value="booking|contact|testimonial">` already added to each form.
-- If you want AJAX (stay on page), remove the `action` and handle with `fetch`. Current setup performs a normal POST redirect (Apps Script returns JSON; browser will show raw JSON). For better UX, implement JS interception.
-- Add a honeypot field (already in testimonial form: `_honey`) for spam mitigation if desired on other forms.
+- AJAX handler auto‑detects forms with `data-ajax="true"` and posts using `fetch`; remove that attribute to disable.
+- Honeypot field `_honey` is present on all forms for spam mitigation (ignored if blank; submission blocked if filled).
+- Success and error messages surface via `.form-note` elements (ARIA live region for accessibility).
+- To customize UI feedback, edit the `setupAjaxForms()` function in `assets/js/main.js`.
 
-### Optional: AJAX Submit Pattern
-```html
-<form id="booking-form" data-script-endpoint="https://script.google.com/macros/s/DEPLOYMENT/exec">...</form>
-```
-```javascript
-document.getElementById('booking-form').addEventListener('submit', async (e)=>{
-  e.preventDefault();
-  const endpoint = e.target.dataset.scriptEndpoint;
-  const fd = new FormData(e.target);
-  const res = await fetch(endpoint, {method:'POST', body:fd});
-  const json = await res.json();
-  // Show success message
-});
-```
+### Optional: Disable AJAX
+Remove `data-ajax="true"` from a form; the browser will then navigate (might show raw JSON). For a redirect, modify Apps Script to return an HTML page or add a meta refresh.
 
 ## Deploy (GitHub Pages)
 
@@ -150,6 +141,19 @@ Alternatively host on Netlify, Vercel, Cloudflare Pages, or any static host.
 - Specs are reference only; verify locally for accuracy.
 - No tracking/analytics included by default.
 - Currency conversion uses exchangerate.host (public API) — consider caching or server proxy for production reliability.
+- Scenic background enabled via `with-bg` body class; change or compress large images to maintain mobile performance. Provide a 1920px wide optimized JPEG (~250 KB) for production.
+- Legacy pages (`about.html`, `contact.html`, `gallery.html`) still show previous brand; update their `<title>`, `.brand`, and any copy or delete if consolidating into single page.
+- Accessibility: skip link, focusable controls, and live region messages included; ensure color contrast remains ≥ WCAG AA if changing palette.
+
+## Launch Checklist
+1. Replace Apps Script URL (`YOUR_DEPLOYMENT_ID`) in all forms.
+2. Deploy Apps Script with updated `SHEET_ID` and `RECIPIENT_EMAIL`.
+3. Update legacy page branding or remove pages if not needed.
+4. Replace all placeholder images (hero, gallery, vehicle thumbs, background) with licensed assets.
+5. Verify currency conversion API reachable from hosting environment.
+6. Test all form submissions on desktop + mobile (success + validation paths).
+7. Add analytics or consent banner if required by region (optional).
+8. Set up custom domain (DNS + GitHub Pages) if desired.
 
 ## Structure
 

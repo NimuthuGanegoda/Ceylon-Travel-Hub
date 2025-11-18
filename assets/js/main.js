@@ -122,6 +122,19 @@ if ('IntersectionObserver' in window && revealEls.length){
   }, {threshold:0.12});
   revealEls.forEach(el => rObs.observe(el));
 }
+// Enhanced scroll-fx elements
+const fxEls = document.querySelectorAll('.scroll-fx');
+if ('IntersectionObserver' in window && fxEls.length){
+  const fxObs = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        en.target.classList.add('visible');
+        fxObs.unobserve(en.target);
+      }
+    });
+  }, {threshold:0.15});
+  fxEls.forEach(el=>fxObs.observe(el));
+}
 
 // Simple parallax for hero
 const hero = document.querySelector('.hero-full');
