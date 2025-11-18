@@ -9,6 +9,7 @@
     "keyFeatures": ["Virtual Cockpit","LED Headlights","Parking Sensors","Apple CarPlay / Android Auto","405 L Boot"],
     "heroImage": "https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=1200&auto=format&fit=crop",
     "thumbImage": "https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=600&auto=format&fit=crop",
+    "fullImage": "https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=1600&auto=format&fit=crop",
     "pricing": {"daily": 75, "weekend": 200, "weekly": 450},
     "status": "available"
   },

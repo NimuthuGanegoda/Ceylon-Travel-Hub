@@ -1,6 +1,6 @@
 # Ceylon Drive Hub Website
 
-Responsive multi‑vehicle rental landing site (currently Audi Q2 sample) with booking‑first workflow, dynamic vehicle & testimonial loading, theming, and optional Google Sheets + email integration via Apps Script.
+Responsive multi‑vehicle rental landing site (currently Audi Q2 sample) with booking‑first workflow, dynamic vehicle & testimonial loading, automatic system dark/light theming (prefers-color-scheme), and optional Google Sheets + email integration via Apps Script.
 
 ## Features
 - Booking‑first hero flow (choose exact vehicle after confirmation)
@@ -9,7 +9,7 @@ Responsive multi‑vehicle rental landing site (currently Audi Q2 sample) with b
 - Pricing cards with live currency conversion (USD base → selectable currencies)
 - Testimonials (list + submission page) merging sample data with local preview storage
 - Accessible navigation, mobile menu, skip link, scroll progress, section reveal animations
-- Theme cycle: dark → light → Apple‑style variant
+- Automatic dark/light theme via operating system preference (no manual toggle)
 - Google Sheets + Email integration (replace placeholder macro URL)
 - Clean, mobile‑first responsive design
 

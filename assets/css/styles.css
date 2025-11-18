@@ -35,49 +35,6 @@ body.with-bg{
   body.with-bg{background-attachment:scroll}
 }
 /* Apple-inspired light design mode (non-dark) */
-body.apple{
-  --bg:#ffffff;
-  --surface:#fff;
-  --elev:#f5f5f7; /* subtle neutral like Apple background */
-  --text:#111111;
-  --muted:#6e6e73;
-  --brand:#bb0a30;
-  --brand-2:#ff2e4d;
-  background:#fff;
-  color:var(--text);
-}
-body.apple .site-header{background:#fff;border-bottom:1px solid #dedede;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-body.apple .nav-links a{color:#4e4e52}
-body.apple .nav-links a:hover{background:#f2f2f3;color:#111}
-body.apple .nav-links a.active{background:#e9e9eb;color:#111}
-body.apple .theme-toggle,body.apple #currency-select{border-color:#cfcfd2;color:#4a4a4e}
-body.apple .btn-primary{box-shadow:none}
-body.apple .hero-full{background:#fff;min-height:70vh;padding:6rem 1rem 4rem;background-image:none}
-/* Apple variant with scenic background: lighten overlay for readability */
-body.apple.with-bg{
-  background:
-    linear-gradient(rgba(255,255,255,.86),rgba(255,255,255,.9)),
-    url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1920&auto=format&fit=crop');
-  background-size:cover;
-  background-position:center;
-}
-body.apple .hero-full::after{display:none}
-body.apple .hero-full .hero-content h1{letter-spacing:-.5px}
-body.apple .full-specs,body.apple .pricing,body.apple .gallery,body.apple .booking,body.apple .map,body.apple .contact{padding:6rem 0}
-body.apple .card{background:#f5f5f7;border-color:#e0e0e3;box-shadow:none}
-body.apple .feature-badges li{background:#f5f5f7;color:#111}
-body.apple .feature-badges li:hover{background:#ebebed}
-body.apple .spec-accordion details{background:#f5f5f7;border-color:#d8d8dc}
-body.apple .spec-accordion details[open]{border-color:#c8c8cc;box-shadow:none}
-body.apple .site-footer{background:#f5f5f7;border-top:1px solid #e2e2e4;color:#6e6e73}
-body.apple input,body.apple textarea{background:#f5f5f7;border-color:#d2d2d6;color:#111}
-body.apple input:focus,body.apple textarea:focus{outline:2px solid rgba(187,10,48,.4)}
-body.apple #scroll-progress{background:linear-gradient(90deg,#bb0a30,#ff2e4d)}
-body.apple .gallery-grid a{border-color:#dedee0}
-body.apple dialog.lightbox{background:rgba(0,0,0,.85)}
-/* Reduce rounded radius for Apple look */
-body.apple .card,body.apple .spec,body.apple .booking-form,body.apple .contact-form,body.apple .spec-accordion details{border-radius:18px}
-body.apple .feature-badges li{border-radius:14px;font-size:.72rem;padding:.45rem .75rem}
 img{max-width:100%;display:block}
 .container{width:min(1100px,92%);margin-inline:auto}
 .hidden{display:none}
@@ -91,8 +48,6 @@ img{max-width:100%;display:block}
 .nav-links a:hover{color:var(--text);background:rgba(255,255,255,.06)}
 .nav-links a.active{color:var(--text);background:rgba(255,255,255,.14)}
 .nav-toggle{display:none;background:none;border:1px solid rgba(255,255,255,.2);color:var(--text);padding:.3rem .5rem;border-radius:8px}
-.theme-toggle{margin-left:.6rem;background:none;border:1px solid rgba(255,255,255,.2);color:var(--text);padding:.3rem .6rem;border-radius:8px;cursor:pointer}
-.theme-toggle:hover{background:rgba(255,255,255,.08)}
 
 .skip-link{position:absolute;top:-80px;left:0;background:#000;color:#fff;padding:.6rem 1rem;z-index:100;transform:translateY(0);text-decoration:none}
 .skip-link:focus{top:0}
@@ -197,8 +152,9 @@ input:focus,textarea:focus{outline:2px solid rgba(187,10,48,.5);border-color:tra
   .testimonial-card{padding:.85rem}
   .t-avatar{width:38px;height:38px;font-size:.75rem}
 }
-[data-theme="light"] .testimonial-card{border-color:rgba(0,0,0,.08)}
-body.apple .testimonial-card{background:#f5f5f7;border-color:#e0e0e3}
+@media (prefers-color-scheme: light){
+  .testimonial-card{border-color:rgba(0,0,0,.08)}
+}
 
 /* Hero feature badges */
 .feature-badges{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1rem;padding:0}
@@ -207,8 +163,10 @@ body.apple .testimonial-card{background:#f5f5f7;border-color:#e0e0e3}
 @media (max-width:640px){
   .feature-badges li{font-size:.68rem}
 }
-[data-theme="light"] .feature-badges li{background:rgba(0,0,0,.07);color:var(--text)}
-[data-theme="light"] .feature-badges li:hover{background:rgba(0,0,0,.12)}
+@media (prefers-color-scheme: light){
+  .feature-badges li{background:rgba(0,0,0,.07);color:var(--text)}
+  .feature-badges li:hover{background:rgba(0,0,0,.12)}
+}
 
 /* Map & contact form */
 .map{padding:2.5rem 0}
@@ -224,22 +182,28 @@ body.apple .testimonial-card{background:#f5f5f7;border-color:#e0e0e3}
 .contact-fab a:hover{background:var(--brand-2);transform:translateY(-3px)}
 
 /* Light theme overrides */
-[data-theme="light"]{
-  --bg:#f5f7fa;
-  --surface:#ffffff;
-  --elev:#f0f3f7;
-  --text:#1d232b;
-  --muted:#546273;
-  --brand:#006dff;
-  --brand-2:#3fb9ff;
-  --shadow:0 6px 20px rgba(0,0,0,.12);
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f5f7fa;
+    --surface:#ffffff;
+    --elev:#f0f3f7;
+    --text:#1d232b;
+    --muted:#546273;
+    --brand:#006dff;
+    --brand-2:#3fb9ff;
+    --shadow:0 6px 20px rgba(0,0,0,.12);
+  }
+  body{background:linear-gradient(180deg,#f6f8fa,#eef2f6)}
+  .btn-primary{color:#fff}
+  .card{border-color:rgba(0,0,0,.08);box-shadow:0 6px 20px rgba(0,0,0,.08)}
+  input,textarea{background:#f1f4f8;color:#1d232b;border-color:rgba(0,0,0,.15)}
+  .nav-links a{color:#546273}
+  .nav-links a.active{background:rgba(0,0,0,.08)}
+  .vehicle-card{border-color:rgba(0,0,0,.08)}
+  .mini-features li{background:rgba(0,0,0,.06)}
+  .spec-accordion details{border-color:rgba(0,0,0,.08)}
+  .spec-accordion details[open]{border-color:rgba(0,0,0,.18);box-shadow:0 4px 14px rgba(0,0,0,.12)}
 }
-[data-theme="light"] body{background:linear-gradient(180deg,#f6f8fa,#eef2f6)}
-[data-theme="light"] .btn-primary{color:#fff}
-[data-theme="light"] .card{border-color:rgba(0,0,0,.08)}
-[data-theme="light"] input,[data-theme="light"] textarea{background:#f1f4f8;color:#1d232b;border-color:rgba(0,0,0,.15)}
-[data-theme="light"] .nav-links a{color:#546273}
-[data-theme="light"] .nav-links a.active{background:rgba(0,0,0,.08)}
 
 /* Reveal on scroll */
 .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.9,.2,1)}
@@ -250,7 +214,9 @@ body.apple .testimonial-card{background:#f5f5f7;border-color:#e0e0e3}
 
 /* Full Specs accordion */
 .full-specs{padding:2.5rem 0}
-[data-theme="light"] .spec-accordion details[open]{border-color:rgba(0,0,0,.18);box-shadow:0 4px 14px rgba(0,0,0,.12)}
+@media (prefers-color-scheme: light){
+  .spec-accordion details[open]{border-color:rgba(0,0,0,.18);box-shadow:0 4px 14px rgba(0,0,0,.12)}
+}
 
 /* Vehicles section */
 .vehicles{padding:2.5rem 0}
@@ -267,13 +233,16 @@ body.apple .testimonial-card{background:#f5f5f7;border-color:#e0e0e3}
 @media (max-width:600px){
   .vehicle-card img{height:150px}
 }
-[data-theme="light"] .vehicle-card{border-color:rgba(0,0,0,.08)}
-[data-theme="light"] .mini-features li{background:rgba(0,0,0,.06)}
-body.apple .vehicle-card{background:#f5f5f7;border:1px solid #e0e0e3}
-body.apple .mini-features li{background:#ebebed;color:#111}
-body.apple .vehicle-card.fallback{outline:2px dashed #d0d0d4}
+@media (prefers-color-scheme: light){
+  .vehicle-card.fallback{outline:2px dashed rgba(0,0,0,.18)}
+}
 .full-specs h2{margin:0 0 1rem}
 .full-specs .intro{color:var(--muted);max-width:760px}
+.spec-hero{margin:1.2rem 0 1.5rem;border-radius:16px;overflow:hidden;box-shadow:0 8px 26px rgba(0,0,0,.35);position:relative}
+.spec-hero img{width:100%;height:320px;object-fit:cover;display:block;filter:saturate(105%) contrast(105%)}
+@media (max-width:700px){
+  .spec-hero img{height:220px}
+}
 .spec-accordion{display:grid;gap:.8rem;margin-top:1.2rem}
 .spec-accordion details{background:var(--surface);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:.6rem .9rem}
 .spec-accordion details[open]{border-color:rgba(255,255,255,.18);box-shadow:0 4px 14px rgba(0,0,0,.35)}
@@ -288,8 +257,10 @@ body.apple .vehicle-card.fallback{outline:2px dashed #d0d0d4}
   .spec-accordion details{padding:.55rem .75rem}
   .spec-accordion ul{font-size:.88rem}
 }
-[data-theme="light"] .spec-accordion details{border-color:rgba(0,0,0,.08)}
-[data-theme="light"] .spec-accordion details[open]{border-color:rgba(0,0,0,.18);box-shadow:0 4px 14px rgba(0,0,0,.12)}
+@media (prefers-color-scheme: light){
+  .spec-accordion details{border-color:rgba(0,0,0,.08)}
+  .spec-accordion details[open]{border-color:rgba(0,0,0,.18);box-shadow:0 4px 14px rgba(0,0,0,.12)}
+}
 
 /* Parallax helpers */
 .hero-parallax{will-change:transform}

@@ -21,30 +21,7 @@ const yearEls = document.querySelectorAll('[id^="year"]');
 const yearStr = String(new Date().getFullYear());
 yearEls.forEach(el => { el.textContent = yearStr; });
 
-// Theme toggle
-const themeBtn = document.querySelector('.theme-toggle');
-if (themeBtn) {
-  themeBtn.addEventListener('click', () => {
-    // Toggle between dark (default), light, and apple modes in a cycle
-    const body = document.body;
-    const root = document.documentElement;
-    const apple = body.classList.contains('apple');
-    const light = root.getAttribute('data-theme') === 'light';
-    if (!light && !apple){
-      // move to light
-      root.setAttribute('data-theme','light');
-      body.classList.remove('apple');
-    } else if (light && !apple){
-      // move to apple
-      root.removeAttribute('data-theme');
-      body.classList.add('apple');
-    } else {
-      // back to dark
-      body.classList.remove('apple');
-      root.removeAttribute('data-theme');
-    }
-  });
-}
+// Automatic OS theme: handled purely by CSS prefers-color-scheme; JS toggle removed.
 
 // Active nav link highlighting by section intersection (derive from internal hash links)
 const sectionIds = Array.from((navLinks || document).querySelectorAll('a[href^="#"]'))
