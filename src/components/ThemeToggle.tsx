@@ -27,8 +27,9 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="fixed bottom-6 right-6 p-3 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 shadow-lg hover:shadow-xl transition-all hover:scale-110 z-40"
+      className="fixed bottom-8 right-8 p-3.5 rounded-full bg-white dark:bg-[#1d1d1f] text-gray-900 dark:text-white shadow-lg hover:shadow-xl transition-all hover:scale-105 z-40 border border-gray-200/50 dark:border-white/10"
       aria-label="Toggle theme"
+      style={{ backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)' }}
     >
       {theme === 'light' ? (
         <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -27,28 +27,28 @@ export default function NavBar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800'
+          ? 'glass border-b border-gray-200/50 dark:border-white/10'
           : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <nav className="max-w-[980px] mx-auto px-5 sm:px-6">
+        <div className="flex items-center justify-between h-[44px]">
           <Link
             href="/"
-            className="text-xl font-bold text-gray-900 dark:text-white hover:text-brand dark:hover:text-brand-light transition-colors"
+            className="text-[21px] font-semibold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
           >
             Ceylon Drive Hub
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand dark:hover:text-brand-light rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+                className="text-[12px] font-normal text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -59,7 +59,7 @@ export default function NavBar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+            className="md:hidden p-1.5 rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? (
@@ -76,12 +76,12 @@ export default function NavBar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 space-y-1">
+          <div className="md:hidden py-3 space-y-0.5 glass border-t border-gray-200/50 dark:border-white/10">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-brand dark:hover:text-brand-light hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all"
+                className="block px-4 py-2.5 text-[14px] font-normal text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100/50 dark:hover:bg-white/5 rounded-lg transition-all"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
