@@ -119,12 +119,12 @@ export default function ToursPage() {
       <Section title={t('popularDestinations')}>
         <div className="grid md:grid-cols-3 gap-6 max-w-[980px] mx-auto">
           {[
-            { name: 'Sigiriya Rock Fortress', image: 'https://images.unsplash.com/photo-1566552881560-0be862a7c445?q=80&w=600' },
-            { name: 'Galle Fort', image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?q=80&w=600' },
-            { name: 'Temple of the Tooth', image: 'https://images.unsplash.com/photo-1580840312934-8cdab42d6a05?q=80&w=600' },
-            { name: 'Yala National Park', image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=600' },
-            { name: 'Ella Rock', image: 'https://images.unsplash.com/photo-1570789210967-2cac24afeb00?q=80&w=600' },
-            { name: 'Mirissa Beach', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=600' },
+            { nameKey: 'sigiriyaRock', image: 'https://images.unsplash.com/photo-1566552881560-0be862a7c445?q=80&w=600' },
+            { nameKey: 'galleFort', image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?q=80&w=600' },
+            { nameKey: 'templeOfTooth', image: 'https://images.unsplash.com/photo-1580840312934-8cdab42d6a05?q=80&w=600' },
+            { nameKey: 'yalaPark', image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=600' },
+            { nameKey: 'ellaRock', image: 'https://images.unsplash.com/photo-1570789210967-2cac24afeb00?q=80&w=600' },
+            { nameKey: 'mirissaBeach', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=600' },
           ].map((dest, idx) => (
             <div 
               key={idx}
@@ -134,12 +134,12 @@ export default function ToursPage() {
               <div className="aspect-[4/3] relative overflow-hidden bg-gray-100 dark:bg-gray-800">
                 <img
                   src={dest.image}
-                  alt={dest.name}
+                  alt={t(dest.nameKey)}
                   className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
                 />
               </div>
               <div className="p-5">
-                <h3 className="text-[17px] font-semibold text-gray-900 dark:text-white">{dest.name}</h3>
+                <h3 className="text-[17px] font-semibold text-gray-900 dark:text-white">{t(dest.nameKey)}</h3>
               </div>
             </div>
           ))}

@@ -88,13 +88,13 @@ export default function TestimonialsPage() {
       <section className="py-20 bg-gray-50/50 dark:bg-[#0a0a0a]">
         <div className="max-w-[640px] mx-auto text-center px-5 scroll-animate opacity-0 translate-y-8 transition-all duration-700">
           <h2 className="text-[32px] font-semibold mb-4 text-gray-900 dark:text-white">
-            Join Our Happy Travelers
+            {t('joinHappyTravelers')}
           </h2>
           <p className="text-[17px] text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-            Start creating your own unforgettable memories in Sri Lanka.
+            {t('startCreatingMemories')}
           </p>
           <a href="/book" className="btn-primary">
-            Book Your Journey
+            {t('bookYourJourney')}
           </a>
         </div>
       </section>

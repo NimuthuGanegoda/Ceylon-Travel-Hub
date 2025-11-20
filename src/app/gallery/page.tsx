@@ -83,13 +83,13 @@ export default function GalleryPage() {
       <Section className="bg-gray-50/50 dark:bg-[#0a0a0a]">
         <div className="max-w-[640px] mx-auto text-center scroll-animate opacity-0 translate-y-8 transition-all duration-700">
           <h2 className="text-[32px] font-semibold mb-4 text-gray-900 dark:text-white">
-            Create Your Own Memories
+            {t('createMemories')}
           </h2>
           <p className="text-[17px] text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-            Book your Sri Lanka adventure today and capture unforgettable moments.
+            {t('bookAdventure')}
           </p>
           <a href="/book" className="btn-primary">
-            Book Your Tour
+            {t('bookYourTour')}
           </a>
         </div>
       </Section>

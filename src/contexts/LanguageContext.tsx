@@ -202,6 +202,24 @@ const translations = {
     getStartedAdventure: 'Get started with your Sri Lankan adventure today.',
     pricingDisclaimer: 'Security deposit and ID required. Fuel and tolls not included. Prices are placeholders — update to your rates.',
     serviceArea: 'Service Area',
+    
+    // Gallery Page CTA
+    createMemories: 'Create Your Own Memories',
+    bookAdventure: 'Book your Sri Lanka adventure today and capture unforgettable moments.',
+    bookYourTour: 'Book Your Tour',
+    
+    // Testimonials Page CTA
+    joinHappyTravelers: 'Join Our Happy Travelers',
+    startCreatingMemories: 'Start creating your own unforgettable memories in Sri Lanka.',
+    bookYourJourney: 'Book Your Journey',
+    
+    // Popular Destinations
+    sigiriyaRock: 'Sigiriya Rock Fortress',
+    galleFort: 'Galle Fort',
+    templeOfTooth: 'Temple of the Tooth',
+    yalaPark: 'Yala National Park',
+    ellaRock: 'Ella Rock',
+    mirissaBeach: 'Mirissa Beach',
   },
   
   ja: {
@@ -395,6 +413,24 @@ const translations = {
     getStartedAdventure: '今日からスリランカの冒険を始めましょう。',
     pricingDisclaimer: '保証金とIDが必要です。燃料と通行料は含まれていません。価格はプレースホルダーです — 料金を更新してください。',
     serviceArea: 'サービスエリア',
+    
+    // Gallery Page CTA
+    createMemories: '自分だけの思い出を作ろう',
+    bookAdventure: '今日スリランカの冒険を予約して、忘れられない瞬間をキャプチャしましょう。',
+    bookYourTour: 'ツアーを予約',
+    
+    // Testimonials Page CTA
+    joinHappyTravelers: '幸せな旅行者に参加',
+    startCreatingMemories: 'スリランカで忘れられない思い出を作り始めましょう。',
+    bookYourJourney: '旅を予約',
+    
+    // Popular Destinations
+    sigiriyaRock: 'シギリヤ・ロック・フォートレス',
+    galleFort: 'ゴール・フォート',
+    templeOfTooth: '仏歯寺',
+    yalaPark: 'ヤーラ国立公園',
+    ellaRock: 'エッラ・ロック',
+    mirissaBeach: 'ミリッサビーチ',
   },
   
   de: {
@@ -588,6 +624,24 @@ const translations = {
     getStartedAdventure: 'Beginnen Sie noch heute mit Ihrem sri-lankischen Abenteuer.',
     pricingDisclaimer: 'Kaution und Ausweis erforderlich. Kraftstoff und Mautgebühren nicht inbegriffen. Preise sind Platzhalter — aktualisieren Sie Ihre Tarife.',
     serviceArea: 'Servicegebiet',
+    
+    // Gallery Page CTA
+    createMemories: 'Schaffen Sie Ihre eigenen Erinnerungen',
+    bookAdventure: 'Buchen Sie noch heute Ihr Sri Lanka-Abenteuer und halten Sie unvergessliche Momente fest.',
+    bookYourTour: 'Tour buchen',
+    
+    // Testimonials Page CTA
+    joinHappyTravelers: 'Werden Sie Teil unserer glücklichen Reisenden',
+    startCreatingMemories: 'Beginnen Sie, Ihre eigenen unvergesslichen Erinnerungen in Sri Lanka zu schaffen.',
+    bookYourJourney: 'Ihre Reise buchen',
+    
+    // Popular Destinations
+    sigiriyaRock: 'Sigiriya-Felsenfestung',
+    galleFort: 'Galle Fort',
+    templeOfTooth: 'Zahntempel',
+    yalaPark: 'Yala-Nationalpark',
+    ellaRock: 'Ella Rock',
+    mirissaBeach: 'Mirissa Beach',
   },
 };
 
