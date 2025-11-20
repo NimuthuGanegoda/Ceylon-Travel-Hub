@@ -50,42 +50,42 @@ export default function PricingPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { 
-                title: 'Daily', 
+                titleKey: 'daily', 
                 price: '$75', 
-                unit: '/day', 
-                features: [
-                  '200 km/day included',
-                  'Additional km: $0.30/km',
-                  'Basic insurance included',
-                  'Fuel not included',
-                  '24/7 roadside assistance',
-                  'Flexible pickup times'
+                unitKey: 'perDay', 
+                featureKeys: [
+                  'kmPerDayIncluded',
+                  'additionalKm030',
+                  'basicInsurance',
+                  'fuelNotIncluded',
+                  'roadside247',
+                  'flexiblePickup'
                 ]
               },
               { 
-                title: 'Weekend', 
+                titleKey: 'weekend', 
                 price: '$200', 
-                unit: '/Fri–Sun', 
-                features: [
-                  '600 km included',
-                  'Additional km: $0.25/km',
-                  'Basic insurance included',
-                  'Fuel not included',
-                  '24/7 roadside assistance',
-                  'Free delivery/pickup'
+                unitKey: 'perWeekend', 
+                featureKeys: [
+                  'kmIncluded600',
+                  'additionalKm025',
+                  'basicInsurance',
+                  'fuelNotIncluded',
+                  'roadside247',
+                  'freeDelivery'
                 ]
               },
               { 
-                title: 'Weekly', 
+                titleKey: 'weekly', 
                 price: '$450', 
-                unit: '/week', 
-                features: [
-                  'Unlimited kilometers',
-                  'Premium insurance included',
-                  'Fuel not included',
-                  '24/7 roadside assistance',
-                  'Free delivery/pickup',
-                  'Priority support'
+                unitKey: 'perWeek', 
+                featureKeys: [
+                  'unlimitedKm',
+                  'premiumInsurance',
+                  'fuelNotIncluded',
+                  'roadside247',
+                  'freeDelivery',
+                  'prioritySupport'
                 ], 
                 featured: true 
               },
@@ -100,31 +100,31 @@ export default function PricingPage() {
                 {plan.featured && (
                   <div className="text-center mb-4">
                     <span className="inline-block px-4 py-1 bg-[#0071e3] text-white text-[12px] font-medium rounded-full">
-                      BEST VALUE
+                      {t('bestValueBadge')}
                     </span>
                   </div>
                 )}
                 <h3 className="text-[28px] font-semibold mb-5 text-gray-900 dark:text-white tracking-tight text-center">
-                  {plan.title}
+                  {t(plan.titleKey)}
                 </h3>
                 <div className="mb-8 text-center">
                   <span className="text-[56px] font-semibold text-gray-900 dark:text-white tracking-tighter">
                     {plan.price}
                   </span>
-                  <span className="text-[17px] text-gray-600 dark:text-gray-400 ml-1">{plan.unit}</span>
+                  <span className="text-[17px] text-gray-600 dark:text-gray-400 ml-1">{t(plan.unitKey)}</span>
                 </div>
                 <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature, i) => (
+                  {plan.featureKeys.map((featureKey, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-[15px] text-gray-700 dark:text-gray-300">
                       <svg className="w-4 h-4 text-[#0071e3] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
-                      {feature}
+                      {t(featureKey)}
                     </li>
                   ))}
                 </ul>
                 <a href="/book" className={plan.featured ? 'btn-primary w-full justify-center' : 'btn-secondary w-full justify-center'}>
-                  Choose {plan.title}
+                  {t('getStarted')}
                 </a>
               </div>
             ))}
