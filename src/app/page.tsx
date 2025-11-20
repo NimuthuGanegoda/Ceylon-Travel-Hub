@@ -1,7 +1,7 @@
 'use client';
 
 import Section from '@/components/Section';
-import { siteData, vehicles, testimonials, services } from '@/data/siteData';
+import { siteData, testimonials, services } from '@/data/siteData';
 import { useEffect, useRef } from 'react';
 
 export default function HomePage() {
@@ -47,90 +47,15 @@ export default function HomePage() {
             ))}
           </div>
           <div className="flex flex-wrap justify-center gap-4 fade-in-delay-3">
-            <a href="/book" className="btn-primary">
-              Book Now
+            <a href="/tours" className="btn-primary">
+              Explore Tours
             </a>
-            <a href="/vehicles" className="btn-secondary">
-              View Vehicles
+            <a href="/book" className="btn-secondary">
+              Book Now
             </a>
           </div>
         </div>
       </section>
-
-      {/* Featured Vehicles */}
-      <Section title="Our Vehicles" id="vehicles">
-        <div className="grid md:grid-cols-2 gap-6 max-w-[980px] mx-auto">
-          {vehicles.slice(0, 2).map((vehicle, idx) => (
-            <div key={vehicle.id} className="card scroll-animate opacity-0 translate-y-8 transition-all duration-700" style={{ transitionDelay: `${idx * 150}ms` }}>
-              <div className="aspect-[16/10] relative overflow-hidden rounded-2xl mb-6 bg-gray-100 dark:bg-gray-800">
-                <img
-                  src={vehicle.thumbImage}
-                  alt={vehicle.name}
-                  className="object-cover w-full h-full hover:scale-[1.02] transition-transform duration-700 ease-out"
-                />
-              </div>
-              <h3 className="text-[28px] font-semibold mb-1.5 text-gray-900 dark:text-white tracking-tight">
-                {vehicle.name}
-              </h3>
-              <p className="text-[14px] font-normal text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-5">
-                {vehicle.segment}
-              </p>
-              <div className="space-y-2.5 mb-6">
-                {vehicle.keyFeatures.slice(0, 3).map((feature, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5 text-[15px] text-gray-700 dark:text-gray-300">
-                    <svg className="w-4 h-4 text-[#0071e3]" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    {feature}
-                  </div>
-                ))}
-              </div>
-              {vehicle.status === 'available' ? (
-                <a href="/book" className="btn-primary w-full justify-center">
-                  Book {vehicle.name.split(' ')[0]}
-                </a>
-              ) : (
-                <span className="block text-center text-[14px] text-gray-500 dark:text-gray-400 py-3.5 bg-gray-50 dark:bg-white/5 rounded-full">
-                  Coming Soon
-                </span>
-              )}
-            </div>
-          ))}
-        </div>
-        <div className="text-center mt-10 scroll-animate opacity-0 translate-y-8 transition-all duration-700" style={{ transitionDelay: '300ms' }}>
-          <a href="/vehicles" className="btn-secondary">
-            View All Vehicles
-          </a>
-        </div>
-      </Section>
-
-      {/* Features Section */}
-      <Section title="Features & Seating Reality" id="features" className="bg-gray-50/50 dark:bg-[#0a0a0a]">
-        <div className="max-w-[800px] mx-auto">
-          <p className="text-[19px] font-normal leading-relaxed text-gray-600 dark:text-gray-400 mb-12 text-center scroll-animate opacity-0 translate-y-8 transition-all duration-700">
-            Comfort configuration: driver + 4 passengers (4 adults + 1 child in booster/child seat). 
-            When a driver or driver‑guide is selected, the usable passenger seats are 4 adults + 1 child; 
-            driver occupies the front seat.
-          </p>
-          <div className="grid md:grid-cols-2 gap-3">
-            {[
-              'Powertrain: 1.4 TFSI turbo petrol with 7‑speed S tronic (FWD)',
-              'Lighting: LED daytime running lights; LED headlights (trim dependent)',
-              'Cabin tech: Audi Virtual Cockpit, MMI 7" display, Bluetooth',
-              'Safety: 6 airbags, ABS, ESC, ISOFIX child‑seat mounts',
-              'Assists: rear parking sensors; cruise control',
-              'Practicality: approx. 405 L boot (rear seats up)',
-            ].map((feature, idx) => (
-              <div key={idx} className="flex items-start gap-3 p-5 bg-white dark:bg-[#1d1d1f] rounded-2xl hover:shadow-md transition-shadow scroll-animate opacity-0 translate-y-8" style={{ transitionDelay: `${idx * 100}ms` }}>
-                <svg className="w-5 h-5 text-[#0071e3] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span className="text-[15px] text-gray-700 dark:text-gray-300">{feature}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
 
       {/* Services Section */}
       <Section title="Tours & Services" id="tours">
@@ -149,6 +74,75 @@ export default function HomePage() {
               </a>
             </div>
           ))}
+        </div>
+      </Section>
+
+      {/* Why Choose Us */}
+      <Section title="Why Choose Ceylon Drive Hub" className="bg-gray-50/50 dark:bg-[#0a0a0a]">
+        <div className="max-w-[900px] mx-auto grid md:grid-cols-3 gap-8">
+          {[
+            { 
+              icon: '🏆', 
+              title: 'Premium Experience', 
+              desc: 'Luxury vehicles and professional service for unforgettable journeys' 
+            },
+            { 
+              icon: '🌍', 
+              title: 'Local Expertise', 
+              desc: 'Expert guides who know every hidden gem across Sri Lanka' 
+            },
+            { 
+              icon: '💯', 
+              title: 'Best Value', 
+              desc: 'Competitive pricing with transparent rates and no hidden fees' 
+            },
+          ].map((item, idx) => (
+            <div 
+              key={idx}
+              className="text-center scroll-animate opacity-0 translate-y-8 transition-all duration-700"
+              style={{ transitionDelay: `${idx * 150}ms` }}
+            >
+              <div className="text-[64px] mb-4">{item.icon}</div>
+              <h3 className="text-[21px] font-semibold mb-3 text-gray-900 dark:text-white">{item.title}</h3>
+              <p className="text-[15px] text-gray-600 dark:text-gray-400 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Destinations Showcase */}
+      <Section title="Explore Sri Lanka">
+        <div className="grid md:grid-cols-3 gap-6 max-w-[980px] mx-auto">
+          {[
+            { name: 'Sigiriya', image: 'https://images.unsplash.com/photo-1566552881560-0be862a7c445?q=80&w=600' },
+            { name: 'Galle Fort', image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?q=80&w=600' },
+            { name: 'Kandy', image: 'https://images.unsplash.com/photo-1580840312934-8cdab42d6a05?q=80&w=600' },
+            { name: 'Yala Safari', image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=600' },
+            { name: 'Ella', image: 'https://images.unsplash.com/photo-1570789210967-2cac24afeb00?q=80&w=600' },
+            { name: 'Mirissa', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=600' },
+          ].map((dest, idx) => (
+            <div 
+              key={idx}
+              className="card p-0 overflow-hidden scroll-animate opacity-0 scale-95 transition-all duration-700"
+              style={{ transitionDelay: `${idx * 100}ms` }}
+            >
+              <div className="aspect-[4/3] relative overflow-hidden bg-gray-100 dark:bg-gray-800">
+                <img
+                  src={dest.image}
+                  alt={dest.name}
+                  className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="text-[19px] font-semibold text-gray-900 dark:text-white">{dest.name}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="text-center mt-10 scroll-animate opacity-0 translate-y-8 transition-all duration-700" style={{ transitionDelay: '600ms' }}>
+          <a href="/tours" className="btn-secondary">
+            View All Destinations
+          </a>
         </div>
       </Section>
 
