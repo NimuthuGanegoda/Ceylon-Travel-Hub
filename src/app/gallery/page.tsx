@@ -2,9 +2,11 @@
 
 import Section from '@/components/Section';
 import { useEffect, useRef } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function GalleryPage() {
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -50,10 +52,10 @@ export default function GalleryPage() {
       <section className="hero-section min-h-[60vh]">
         <div className="max-w-[980px] mx-auto text-center px-5 py-20 fade-in">
           <h1 className="apple-headline mb-5">
-            Gallery
+            {t('galleryHeroTitle')}
           </h1>
           <p className="apple-subheadline mb-10 max-w-2xl mx-auto fade-in-delay-1">
-            Explore stunning moments captured during our tours across Sri Lanka.
+            {t('galleryHeroSubtitle')}
           </p>
         </div>
       </section>

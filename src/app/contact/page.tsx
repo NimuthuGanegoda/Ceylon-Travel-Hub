@@ -3,9 +3,11 @@
 import Section from '@/components/Section';
 import { siteData } from '@/data/siteData';
 import { useEffect, useRef } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ContactPage() {
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -36,10 +38,10 @@ export default function ContactPage() {
       <section className="hero-section min-h-[60vh]">
         <div className="max-w-[980px] mx-auto text-center px-5 py-20 fade-in">
           <h1 className="apple-headline mb-5">
-            Get in Touch
+            {t('contactHeroTitle')}
           </h1>
           <p className="apple-subheadline mb-10 max-w-2xl mx-auto fade-in-delay-1">
-            Have questions? We're here to help you plan your perfect Sri Lankan adventure.
+            {t('contactHeroSubtitle')}
           </p>
         </div>
       </section>

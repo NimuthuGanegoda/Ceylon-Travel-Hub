@@ -3,9 +3,11 @@
 import Section from '@/components/Section';
 import { services } from '@/data/siteData';
 import { useEffect, useRef } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function BookPage() {
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -36,10 +38,10 @@ export default function BookPage() {
       <section className="hero-section min-h-[60vh]">
         <div className="max-w-[980px] mx-auto text-center px-5 py-20 fade-in">
           <h1 className="apple-headline mb-5">
-            Book Your Journey
+            {t('bookHeroTitle')}
           </h1>
           <p className="apple-subheadline mb-10 max-w-2xl mx-auto fade-in-delay-1">
-            Fill in your details and we'll confirm availability within 24 hours.
+            {t('bookHeroSubtitle')}
           </p>
         </div>
       </section>
