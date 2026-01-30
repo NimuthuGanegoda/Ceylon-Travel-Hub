@@ -44,7 +44,10 @@ export default function HomePage() {
             {t('heroSubtitle')}
           </p>
           <div className="flex flex-wrap justify-center gap-4 fade-in-delay-3">
-            <a href="/tours" className="btn-primary">
+            <a href="/bus-system" className="btn-primary">
+              Sri Lanka Bus Finder
+            </a>
+            <a href="/tours" className="btn-secondary">
               {t('exploreTours')}
             </a>
             <a href="/book" className="btn-secondary">
@@ -58,6 +61,17 @@ export default function HomePage() {
       <section className="py-20 bg-gray-50/50 dark:bg-[#0a0a0a]">
         <div className="max-w-[980px] mx-auto px-5">
           <div className="grid md:grid-cols-3 gap-8">
+            <a 
+              href="/bus-system"
+              className="card text-center group scroll-animate opacity-0 translate-y-8 transition-all duration-700"
+            >
+              <div className="text-[64px] mb-4 transition-transform group-hover:scale-110 duration-300">🚌</div>
+              <h3 className="text-[24px] font-semibold mb-3 text-gray-900 dark:text-white">Sri Lanka Bus Finder</h3>
+              <p className="text-[15px] text-gray-600 dark:text-gray-400 leading-relaxed">
+                Find the right bus, route, and schedule for your journey across Sri Lanka
+              </p>
+            </a>
+
             <a 
               href="/tours"
               className="card text-center group scroll-animate opacity-0 translate-y-8 transition-all duration-700"
@@ -78,18 +92,6 @@ export default function HomePage() {
               <h3 className="text-[24px] font-semibold mb-3 text-gray-900 dark:text-white">{t('ourVehicles')}</h3>
               <p className="text-[15px] text-gray-600 dark:text-gray-400 leading-relaxed">
                 {t('ourVehiclesDesc')}
-              </p>
-            </a>
-
-            <a 
-              href="/gallery"
-              className="card text-center group scroll-animate opacity-0 translate-y-8 transition-all duration-700"
-              style={{ transitionDelay: '300ms' }}
-            >
-              <div className="text-[64px] mb-4 transition-transform group-hover:scale-110 duration-300">📸</div>
-              <h3 className="text-[24px] font-semibold mb-3 text-gray-900 dark:text-white">{t('galleryTitle')}</h3>
-              <p className="text-[15px] text-gray-600 dark:text-gray-400 leading-relaxed">
-                {t('galleryDesc')}
               </p>
             </a>
           </div>
