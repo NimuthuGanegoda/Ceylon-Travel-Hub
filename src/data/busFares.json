@@ -1,0 +1,1413 @@
+{
+  "lastUpdated": "2026-01-30T20:09:11.059Z",
+  "source": "Scraped from NTC PDF",
+  "normal": [
+    {
+      "stage": 1,
+      "fare": 27
+    },
+    {
+      "stage": 2,
+      "fare": 35
+    },
+    {
+      "stage": 3,
+      "fare": 45
+    },
+    {
+      "stage": 4,
+      "fare": 55
+    },
+    {
+      "stage": 5,
+      "fare": 66
+    },
+    {
+      "stage": 6,
+      "fare": 76
+    },
+    {
+      "stage": 7,
+      "fare": 86
+    },
+    {
+      "stage": 8,
+      "fare": 90
+    },
+    {
+      "stage": 9,
+      "fare": 97
+    },
+    {
+      "stage": 10,
+      "fare": 104
+    },
+    {
+      "stage": 11,
+      "fare": 111
+    },
+    {
+      "stage": 12,
+      "fare": 116
+    },
+    {
+      "stage": 13,
+      "fare": 123
+    },
+    {
+      "stage": 14,
+      "fare": 130
+    },
+    {
+      "stage": 15,
+      "fare": 135
+    },
+    {
+      "stage": 16,
+      "fare": 140
+    },
+    {
+      "stage": 17,
+      "fare": 147
+    },
+    {
+      "stage": 18,
+      "fare": 152
+    },
+    {
+      "stage": 19,
+      "fare": 159
+    },
+    {
+      "stage": 20,
+      "fare": 164
+    },
+    {
+      "stage": 21,
+      "fare": 171
+    },
+    {
+      "stage": 22,
+      "fare": 176
+    },
+    {
+      "stage": 23,
+      "fare": 183
+    },
+    {
+      "stage": 24,
+      "fare": 189
+    },
+    {
+      "stage": 25,
+      "fare": 195
+    },
+    {
+      "stage": 26,
+      "fare": 201
+    },
+    {
+      "stage": 27,
+      "fare": 208
+    },
+    {
+      "stage": 28,
+      "fare": 213
+    },
+    {
+      "stage": 29,
+      "fare": 220
+    },
+    {
+      "stage": 30,
+      "fare": 227
+    },
+    {
+      "stage": 31,
+      "fare": 232
+    },
+    {
+      "stage": 32,
+      "fare": 239
+    },
+    {
+      "stage": 33,
+      "fare": 244
+    },
+    {
+      "stage": 34,
+      "fare": 251
+    },
+    {
+      "stage": 35,
+      "fare": 256
+    },
+    {
+      "stage": 36,
+      "fare": 263
+    },
+    {
+      "stage": 37,
+      "fare": 268
+    },
+    {
+      "stage": 38,
+      "fare": 275
+    },
+    {
+      "stage": 39,
+      "fare": 280
+    },
+    {
+      "stage": 40,
+      "fare": 287
+    },
+    {
+      "stage": 41,
+      "fare": 292
+    },
+    {
+      "stage": 42,
+      "fare": 299
+    },
+    {
+      "stage": 43,
+      "fare": 304
+    },
+    {
+      "stage": 44,
+      "fare": 311
+    },
+    {
+      "stage": 45,
+      "fare": 317
+    },
+    {
+      "stage": 46,
+      "fare": 323
+    },
+    {
+      "stage": 47,
+      "fare": 329
+    },
+    {
+      "stage": 48,
+      "fare": 336
+    },
+    {
+      "stage": 49,
+      "fare": 341
+    },
+    {
+      "stage": 50,
+      "fare": 348
+    },
+    {
+      "stage": 51,
+      "fare": 353
+    },
+    {
+      "stage": 52,
+      "fare": 360
+    },
+    {
+      "stage": 53,
+      "fare": 365
+    },
+    {
+      "stage": 54,
+      "fare": 372
+    },
+    {
+      "stage": 55,
+      "fare": 379
+    },
+    {
+      "stage": 56,
+      "fare": 384
+    },
+    {
+      "stage": 57,
+      "fare": 391
+    },
+    {
+      "stage": 58,
+      "fare": 396
+    },
+    {
+      "stage": 59,
+      "fare": 403
+    },
+    {
+      "stage": 60,
+      "fare": 408
+    },
+    {
+      "stage": 61,
+      "fare": 413
+    },
+    {
+      "stage": 62,
+      "fare": 419
+    },
+    {
+      "stage": 63,
+      "fare": 425
+    },
+    {
+      "stage": 64,
+      "fare": 431
+    },
+    {
+      "stage": 65,
+      "fare": 438
+    },
+    {
+      "stage": 66,
+      "fare": 443
+    },
+    {
+      "stage": 67,
+      "fare": 450
+    },
+    {
+      "stage": 68,
+      "fare": 455
+    },
+    {
+      "stage": 69,
+      "fare": 462
+    },
+    {
+      "stage": 70,
+      "fare": 467
+    },
+    {
+      "stage": 71,
+      "fare": 474
+    },
+    {
+      "stage": 72,
+      "fare": 479
+    },
+    {
+      "stage": 73,
+      "fare": 486
+    },
+    {
+      "stage": 74,
+      "fare": 491
+    },
+    {
+      "stage": 75,
+      "fare": 496
+    },
+    {
+      "stage": 76,
+      "fare": 503
+    },
+    {
+      "stage": 77,
+      "fare": 509
+    },
+    {
+      "stage": 78,
+      "fare": 515
+    },
+    {
+      "stage": 79,
+      "fare": 521
+    },
+    {
+      "stage": 80,
+      "fare": 528
+    },
+    {
+      "stage": 81,
+      "fare": 533
+    },
+    {
+      "stage": 82,
+      "fare": 540
+    },
+    {
+      "stage": 83,
+      "fare": 545
+    },
+    {
+      "stage": 84,
+      "fare": 552
+    },
+    {
+      "stage": 85,
+      "fare": 557
+    },
+    {
+      "stage": 86,
+      "fare": 564
+    },
+    {
+      "stage": 87,
+      "fare": 569
+    },
+    {
+      "stage": 88,
+      "fare": 576
+    },
+    {
+      "stage": 89,
+      "fare": 581
+    },
+    {
+      "stage": 90,
+      "fare": 588
+    },
+    {
+      "stage": 91,
+      "fare": 593
+    },
+    {
+      "stage": 92,
+      "fare": 600
+    },
+    {
+      "stage": 93,
+      "fare": 605
+    },
+    {
+      "stage": 94,
+      "fare": 612
+    },
+    {
+      "stage": 95,
+      "fare": 617
+    },
+    {
+      "stage": 96,
+      "fare": 624
+    },
+    {
+      "stage": 97,
+      "fare": 630
+    },
+    {
+      "stage": 98,
+      "fare": 635
+    },
+    {
+      "stage": 99,
+      "fare": 642
+    },
+    {
+      "stage": 100,
+      "fare": 647
+    },
+    {
+      "stage": 101,
+      "fare": 654
+    },
+    {
+      "stage": 102,
+      "fare": 659
+    },
+    {
+      "stage": 103,
+      "fare": 666
+    },
+    {
+      "stage": 104,
+      "fare": 671
+    },
+    {
+      "stage": 105,
+      "fare": 678
+    },
+    {
+      "stage": 106,
+      "fare": 683
+    },
+    {
+      "stage": 107,
+      "fare": 690
+    },
+    {
+      "stage": 108,
+      "fare": 695
+    },
+    {
+      "stage": 109,
+      "fare": 702
+    },
+    {
+      "stage": 110,
+      "fare": 707
+    },
+    {
+      "stage": 111,
+      "fare": 714
+    },
+    {
+      "stage": 112,
+      "fare": 720
+    },
+    {
+      "stage": 113,
+      "fare": 726
+    },
+    {
+      "stage": 114,
+      "fare": 732
+    },
+    {
+      "stage": 115,
+      "fare": 739
+    },
+    {
+      "stage": 116,
+      "fare": 744
+    },
+    {
+      "stage": 117,
+      "fare": 751
+    },
+    {
+      "stage": 118,
+      "fare": 756
+    },
+    {
+      "stage": 119,
+      "fare": 761
+    },
+    {
+      "stage": 120,
+      "fare": 768
+    },
+    {
+      "stage": 121,
+      "fare": 773
+    },
+    {
+      "stage": 122,
+      "fare": 780
+    },
+    {
+      "stage": 123,
+      "fare": 785
+    },
+    {
+      "stage": 124,
+      "fare": 792
+    },
+    {
+      "stage": 125,
+      "fare": 797
+    },
+    {
+      "stage": 126,
+      "fare": 804
+    },
+    {
+      "stage": 127,
+      "fare": 809
+    },
+    {
+      "stage": 128,
+      "fare": 816
+    },
+    {
+      "stage": 129,
+      "fare": 822
+    },
+    {
+      "stage": 130,
+      "fare": 828
+    },
+    {
+      "stage": 131,
+      "fare": 834
+    },
+    {
+      "stage": 132,
+      "fare": 841
+    },
+    {
+      "stage": 133,
+      "fare": 846
+    },
+    {
+      "stage": 134,
+      "fare": 853
+    },
+    {
+      "stage": 135,
+      "fare": 858
+    },
+    {
+      "stage": 136,
+      "fare": 865
+    },
+    {
+      "stage": 137,
+      "fare": 870
+    },
+    {
+      "stage": 138,
+      "fare": 877
+    },
+    {
+      "stage": 139,
+      "fare": 882
+    },
+    {
+      "stage": 140,
+      "fare": 887
+    },
+    {
+      "stage": 141,
+      "fare": 894
+    },
+    {
+      "stage": 142,
+      "fare": 899
+    },
+    {
+      "stage": 143,
+      "fare": 906
+    },
+    {
+      "stage": 144,
+      "fare": 912
+    },
+    {
+      "stage": 145,
+      "fare": 918
+    },
+    {
+      "stage": 146,
+      "fare": 924
+    },
+    {
+      "stage": 147,
+      "fare": 931
+    },
+    {
+      "stage": 148,
+      "fare": 936
+    },
+    {
+      "stage": 149,
+      "fare": 943
+    },
+    {
+      "stage": 150,
+      "fare": 948
+    },
+    {
+      "stage": 151,
+      "fare": 955
+    },
+    {
+      "stage": 152,
+      "fare": 960
+    },
+    {
+      "stage": 153,
+      "fare": 967
+    },
+    {
+      "stage": 154,
+      "fare": 972
+    },
+    {
+      "stage": 155,
+      "fare": 979
+    },
+    {
+      "stage": 156,
+      "fare": 984
+    },
+    {
+      "stage": 157,
+      "fare": 991
+    },
+    {
+      "stage": 158,
+      "fare": 996
+    },
+    {
+      "stage": 159,
+      "fare": 1003
+    },
+    {
+      "stage": 160,
+      "fare": 1008
+    },
+    {
+      "stage": 161,
+      "fare": 1015
+    },
+    {
+      "stage": 162,
+      "fare": 1020
+    },
+    {
+      "stage": 163,
+      "fare": 1026
+    },
+    {
+      "stage": 164,
+      "fare": 1033
+    },
+    {
+      "stage": 165,
+      "fare": 1038
+    },
+    {
+      "stage": 166,
+      "fare": 1045
+    },
+    {
+      "stage": 167,
+      "fare": 1050
+    },
+    {
+      "stage": 168,
+      "fare": 1057
+    },
+    {
+      "stage": 169,
+      "fare": 1062
+    },
+    {
+      "stage": 170,
+      "fare": 1069
+    },
+    {
+      "stage": 171,
+      "fare": 1074
+    },
+    {
+      "stage": 172,
+      "fare": 1081
+    },
+    {
+      "stage": 173,
+      "fare": 1086
+    },
+    {
+      "stage": 174,
+      "fare": 1093
+    },
+    {
+      "stage": 175,
+      "fare": 1098
+    },
+    {
+      "stage": 176,
+      "fare": 1105
+    },
+    {
+      "stage": 177,
+      "fare": 1110
+    },
+    {
+      "stage": 178,
+      "fare": 1117
+    },
+    {
+      "stage": 179,
+      "fare": 1123
+    },
+    {
+      "stage": 180,
+      "fare": 1129
+    },
+    {
+      "stage": 181,
+      "fare": 1135
+    },
+    {
+      "stage": 182,
+      "fare": 1142
+    },
+    {
+      "stage": 183,
+      "fare": 1147
+    },
+    {
+      "stage": 184,
+      "fare": 1152
+    },
+    {
+      "stage": 185,
+      "fare": 1159
+    },
+    {
+      "stage": 186,
+      "fare": 1164
+    },
+    {
+      "stage": 187,
+      "fare": 1171
+    },
+    {
+      "stage": 188,
+      "fare": 1176
+    },
+    {
+      "stage": 189,
+      "fare": 1183
+    },
+    {
+      "stage": 190,
+      "fare": 1188
+    },
+    {
+      "stage": 191,
+      "fare": 1195
+    },
+    {
+      "stage": 192,
+      "fare": 1200
+    },
+    {
+      "stage": 193,
+      "fare": 1207
+    },
+    {
+      "stage": 194,
+      "fare": 1212
+    },
+    {
+      "stage": 195,
+      "fare": 1219
+    },
+    {
+      "stage": 196,
+      "fare": 1225
+    },
+    {
+      "stage": 197,
+      "fare": 1231
+    },
+    {
+      "stage": 198,
+      "fare": 1237
+    },
+    {
+      "stage": 199,
+      "fare": 1244
+    },
+    {
+      "stage": 200,
+      "fare": 1249
+    },
+    {
+      "stage": 201,
+      "fare": 1256
+    },
+    {
+      "stage": 202,
+      "fare": 1261
+    },
+    {
+      "stage": 203,
+      "fare": 1268
+    },
+    {
+      "stage": 204,
+      "fare": 1273
+    },
+    {
+      "stage": 205,
+      "fare": 1280
+    },
+    {
+      "stage": 206,
+      "fare": 1285
+    },
+    {
+      "stage": 207,
+      "fare": 1290
+    },
+    {
+      "stage": 208,
+      "fare": 1297
+    },
+    {
+      "stage": 209,
+      "fare": 1302
+    },
+    {
+      "stage": 210,
+      "fare": 1309
+    },
+    {
+      "stage": 211,
+      "fare": 1315
+    },
+    {
+      "stage": 212,
+      "fare": 1321
+    },
+    {
+      "stage": 213,
+      "fare": 1327
+    },
+    {
+      "stage": 214,
+      "fare": 1334
+    },
+    {
+      "stage": 215,
+      "fare": 1339
+    },
+    {
+      "stage": 216,
+      "fare": 1346
+    },
+    {
+      "stage": 217,
+      "fare": 1351
+    },
+    {
+      "stage": 218,
+      "fare": 1358
+    },
+    {
+      "stage": 219,
+      "fare": 1363
+    },
+    {
+      "stage": 220,
+      "fare": 1370
+    },
+    {
+      "stage": 221,
+      "fare": 1375
+    },
+    {
+      "stage": 222,
+      "fare": 1382
+    },
+    {
+      "stage": 223,
+      "fare": 1387
+    },
+    {
+      "stage": 224,
+      "fare": 1394
+    },
+    {
+      "stage": 225,
+      "fare": 1399
+    },
+    {
+      "stage": 226,
+      "fare": 1406
+    },
+    {
+      "stage": 227,
+      "fare": 1411
+    },
+    {
+      "stage": 228,
+      "fare": 1417
+    },
+    {
+      "stage": 229,
+      "fare": 1423
+    },
+    {
+      "stage": 230,
+      "fare": 1429
+    },
+    {
+      "stage": 231,
+      "fare": 1436
+    },
+    {
+      "stage": 232,
+      "fare": 1441
+    },
+    {
+      "stage": 233,
+      "fare": 1448
+    },
+    {
+      "stage": 234,
+      "fare": 1453
+    },
+    {
+      "stage": 235,
+      "fare": 1460
+    },
+    {
+      "stage": 236,
+      "fare": 1465
+    },
+    {
+      "stage": 237,
+      "fare": 1472
+    },
+    {
+      "stage": 238,
+      "fare": 1477
+    },
+    {
+      "stage": 239,
+      "fare": 1484
+    },
+    {
+      "stage": 240,
+      "fare": 1489
+    },
+    {
+      "stage": 241,
+      "fare": 1496
+    },
+    {
+      "stage": 242,
+      "fare": 1501
+    },
+    {
+      "stage": 243,
+      "fare": 1508
+    },
+    {
+      "stage": 244,
+      "fare": 1513
+    },
+    {
+      "stage": 245,
+      "fare": 1520
+    },
+    {
+      "stage": 246,
+      "fare": 1526
+    },
+    {
+      "stage": 247,
+      "fare": 1532
+    },
+    {
+      "stage": 248,
+      "fare": 1538
+    },
+    {
+      "stage": 249,
+      "fare": 1543
+    },
+    {
+      "stage": 250,
+      "fare": 1550
+    },
+    {
+      "stage": 251,
+      "fare": 1555
+    },
+    {
+      "stage": 252,
+      "fare": 1562
+    },
+    {
+      "stage": 253,
+      "fare": 1567
+    },
+    {
+      "stage": 254,
+      "fare": 1574
+    },
+    {
+      "stage": 255,
+      "fare": 1579
+    },
+    {
+      "stage": 256,
+      "fare": 1586
+    },
+    {
+      "stage": 257,
+      "fare": 1591
+    },
+    {
+      "stage": 258,
+      "fare": 1598
+    },
+    {
+      "stage": 259,
+      "fare": 1603
+    },
+    {
+      "stage": 260,
+      "fare": 1610
+    },
+    {
+      "stage": 261,
+      "fare": 1615
+    },
+    {
+      "stage": 262,
+      "fare": 1622
+    },
+    {
+      "stage": 263,
+      "fare": 1628
+    },
+    {
+      "stage": 264,
+      "fare": 1634
+    },
+    {
+      "stage": 265,
+      "fare": 1640
+    },
+    {
+      "stage": 266,
+      "fare": 1647
+    },
+    {
+      "stage": 267,
+      "fare": 1652
+    },
+    {
+      "stage": 268,
+      "fare": 1659
+    },
+    {
+      "stage": 269,
+      "fare": 1664
+    },
+    {
+      "stage": 270,
+      "fare": 1671
+    },
+    {
+      "stage": 271,
+      "fare": 1676
+    },
+    {
+      "stage": 272,
+      "fare": 1681
+    },
+    {
+      "stage": 273,
+      "fare": 1688
+    },
+    {
+      "stage": 274,
+      "fare": 1693
+    },
+    {
+      "stage": 275,
+      "fare": 1700
+    },
+    {
+      "stage": 276,
+      "fare": 1705
+    },
+    {
+      "stage": 277,
+      "fare": 1712
+    },
+    {
+      "stage": 278,
+      "fare": 1718
+    },
+    {
+      "stage": 279,
+      "fare": 1724
+    },
+    {
+      "stage": 280,
+      "fare": 1730
+    },
+    {
+      "stage": 281,
+      "fare": 1737
+    },
+    {
+      "stage": 282,
+      "fare": 1742
+    },
+    {
+      "stage": 283,
+      "fare": 1749
+    },
+    {
+      "stage": 284,
+      "fare": 1754
+    },
+    {
+      "stage": 285,
+      "fare": 1761
+    },
+    {
+      "stage": 286,
+      "fare": 1766
+    },
+    {
+      "stage": 287,
+      "fare": 1773
+    },
+    {
+      "stage": 288,
+      "fare": 1778
+    },
+    {
+      "stage": 289,
+      "fare": 1785
+    },
+    {
+      "stage": 290,
+      "fare": 1790
+    },
+    {
+      "stage": 291,
+      "fare": 1797
+    },
+    {
+      "stage": 292,
+      "fare": 1802
+    },
+    {
+      "stage": 293,
+      "fare": 1807
+    },
+    {
+      "stage": 294,
+      "fare": 1814
+    },
+    {
+      "stage": 295,
+      "fare": 1820
+    },
+    {
+      "stage": 296,
+      "fare": 1826
+    },
+    {
+      "stage": 297,
+      "fare": 1832
+    },
+    {
+      "stage": 298,
+      "fare": 1839
+    },
+    {
+      "stage": 299,
+      "fare": 1844
+    },
+    {
+      "stage": 300,
+      "fare": 1851
+    },
+    {
+      "stage": 301,
+      "fare": 1856
+    },
+    {
+      "stage": 302,
+      "fare": 1863
+    },
+    {
+      "stage": 303,
+      "fare": 1868
+    },
+    {
+      "stage": 304,
+      "fare": 1875
+    },
+    {
+      "stage": 305,
+      "fare": 1880
+    },
+    {
+      "stage": 306,
+      "fare": 1887
+    },
+    {
+      "stage": 307,
+      "fare": 1894
+    },
+    {
+      "stage": 308,
+      "fare": 1901
+    },
+    {
+      "stage": 309,
+      "fare": 1906
+    },
+    {
+      "stage": 310,
+      "fare": 1913
+    },
+    {
+      "stage": 311,
+      "fare": 1918
+    },
+    {
+      "stage": 312,
+      "fare": 1925
+    },
+    {
+      "stage": 313,
+      "fare": 1930
+    },
+    {
+      "stage": 314,
+      "fare": 1937
+    },
+    {
+      "stage": 315,
+      "fare": 1944
+    },
+    {
+      "stage": 316,
+      "fare": 1949
+    },
+    {
+      "stage": 317,
+      "fare": 1956
+    },
+    {
+      "stage": 318,
+      "fare": 1961
+    },
+    {
+      "stage": 319,
+      "fare": 1968
+    },
+    {
+      "stage": 320,
+      "fare": 1973
+    },
+    {
+      "stage": 321,
+      "fare": 1980
+    },
+    {
+      "stage": 322,
+      "fare": 1987
+    },
+    {
+      "stage": 323,
+      "fare": 1993
+    },
+    {
+      "stage": 324,
+      "fare": 1999
+    },
+    {
+      "stage": 325,
+      "fare": 2005
+    },
+    {
+      "stage": 326,
+      "fare": 2012
+    },
+    {
+      "stage": 327,
+      "fare": 2017
+    },
+    {
+      "stage": 328,
+      "fare": 2024
+    },
+    {
+      "stage": 329,
+      "fare": 2029
+    },
+    {
+      "stage": 330,
+      "fare": 2036
+    },
+    {
+      "stage": 331,
+      "fare": 2043
+    },
+    {
+      "stage": 332,
+      "fare": 2048
+    },
+    {
+      "stage": 333,
+      "fare": 2055
+    },
+    {
+      "stage": 334,
+      "fare": 2060
+    },
+    {
+      "stage": 335,
+      "fare": 2067
+    },
+    {
+      "stage": 336,
+      "fare": 2072
+    },
+    {
+      "stage": 337,
+      "fare": 2079
+    },
+    {
+      "stage": 338,
+      "fare": 2086
+    },
+    {
+      "stage": 339,
+      "fare": 2091
+    },
+    {
+      "stage": 340,
+      "fare": 2098
+    },
+    {
+      "stage": 341,
+      "fare": 2103
+    },
+    {
+      "stage": 342,
+      "fare": 2110
+    },
+    {
+      "stage": 343,
+      "fare": 2115
+    },
+    {
+      "stage": 344,
+      "fare": 2122
+    },
+    {
+      "stage": 345,
+      "fare": 2129
+    },
+    {
+      "stage": 346,
+      "fare": 2134
+    },
+    {
+      "stage": 347,
+      "fare": 2141
+    },
+    {
+      "stage": 348,
+      "fare": 2146
+    },
+    {
+      "stage": 349,
+      "fare": 2153
+    },
+    {
+      "stage": 350,
+      "fare": 2159
+    }
+  ],
+  "expressway": {
+    "Makumbura-Galle": 1100,
+    "Makumbura-Matara": 1300,
+    "Kadawatha-Galle": 1200,
+    "Kadawatha-Matara": 1400,
+    "Colombo-Kandy": 1000
+  }
+}

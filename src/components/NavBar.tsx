@@ -21,6 +21,7 @@ export default function NavBar() {
   const navLinks = [
     { href: '/', label: t('home') },
     { href: '/bus-system', label: 'Bus System' },
+    { href: '/routemaster', label: 'RouteMaster' },
     { href: '/vehicles', label: t('vehicles') },
     { href: '/tours', label: t('tours') },
     { href: '/gallery', label: t('gallery') },
