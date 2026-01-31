@@ -1,23 +1,20 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { BusRoute, busRoutes } from '@/data/bus-routes';
-import { LocationPoint, findNearestLocations, busStopsData } from '@/utils/location-utils';
+import { TrainRoute, trainRoutes } from '@/data/train-routes';
+import { LocationPoint, findNearestLocations, trainStationsData } from '@/utils/location-utils';
 import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
-import NearestStops from './NearestStops';
+import NearestStations from './NearestStations';
 
-interface Location extends LocationPoint {}
-
-export const BusFinder = () => {
+export const TrainFinder = () => {
   const [origin, setOrigin] = useState<string>('');
   const [destination, setDestination] = useState<string>('');
   const [useCurrentLocation, setUseCurrentLocation] = useState<boolean>(false);
-  const [currentLocation, setCurrentLocation] = useState<Location | null>(null);
-  const [searchResults, setSearchResults] = useState<BusRoute[]>([]);
+  const [searchResults, setSearchResults] = useState<TrainRoute[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
-  const [nearestStops, setNearestStops] = useState<{ location: LocationPoint; distance: number }[]>([]);
+  const [nearestStations, setNearestStations] = useState<{ location: LocationPoint; distance: number }[]>([]);
 
   // Get user's current location
   const getCurrentLocation = useCallback(() => {
@@ -26,26 +23,26 @@ export const BusFinder = () => {
         (position) => {
           const { latitude, longitude } = position.coords;
 
-          const userLocation: Location = {
+          const userLocation: LocationPoint = {
             lat: latitude,
             lng: longitude,
             name: `Current Location`
           };
 
-          setCurrentLocation(userLocation);
           setOrigin(userLocation.name);
 
-          // Find nearest bus stops
+          // Find nearest train stations
           const nearest = findNearestLocations(
             { lat: latitude, lng: longitude, name: userLocation.name },
-            busStopsData,
-            3 // Return top 3 nearest stops
+            trainStationsData,
+            3 // Return top 3 nearest stations
           );
-          setNearestStops(nearest);
+          setNearestStations(nearest);
         },
-        (error) => {
+        (_error) => {
           setError('Unable to retrieve your location. Please enable location services.');
           setUseCurrentLocation(false);
+          setOrigin(prev => prev === 'Current Location' ? '' : prev);
         }
       );
     } else {
@@ -58,9 +55,7 @@ export const BusFinder = () => {
     if (useCurrentLocation) {
       getCurrentLocation();
     } else {
-      // If unchecked, maybe clear the "Current Location" text if it matches?
-      // For now, let's just clear nearest stops
-      setNearestStops([]);
+      setNearestStations([]);
       setOrigin(prev => prev === 'Current Location' ? '' : prev);
     }
   }, [useCurrentLocation, getCurrentLocation]);
@@ -71,22 +66,43 @@ export const BusFinder = () => {
     setError('');
     setSearchResults([]);
 
+    // Determine effective origin for search logic
+    let searchOrigin = origin;
+    if (useCurrentLocation && origin === 'Current Location' && nearestStations.length > 0) {
+      // Use the nearest station name as the origin for searching
+      searchOrigin = nearestStations[0].location.name;
+    }
+
     // Simulate API call delay
     setTimeout(() => {
       try {
-        // Filter routes based on origin and destination (case-insensitive)
-        const filteredRoutes = busRoutes.filter(route =>
-          route.origin.toLowerCase().includes(origin.toLowerCase()) &&
-          route.destination.toLowerCase().includes(destination.toLowerCase())
-        );
+        const normalizedOrigin = searchOrigin.toLowerCase().trim();
+        const normalizedDestination = destination.toLowerCase().trim();
+
+        const filteredRoutes = trainRoutes.filter(route => {
+          // Check if both origin and destination exist in the stops array
+          // and if the origin comes before the destination in the route
+          const stopsLower = route.stops.map(stop => stop.toLowerCase());
+
+          // Helper to find index of a stop that includes the search term (partial match support)
+          // or we can do exact match. The PR comment suggested using nearest station name
+          // which is exact. For manual input, partial match is better.
+          // Let's use includes for flexibility but strict order.
+
+          const originIndex = stopsLower.findIndex(stop => stop.includes(normalizedOrigin));
+          const destIndex = stopsLower.findIndex(stop => stop.includes(normalizedDestination));
+
+          return originIndex !== -1 && destIndex !== -1 && originIndex < destIndex;
+        });
 
         if (filteredRoutes.length === 0) {
-          setError('No buses found for the selected route. Please try different locations.');
+          setError('No trains found for the selected route. Please try different stations.');
         }
 
         setSearchResults(filteredRoutes);
       } catch (err) {
-        setError('An error occurred while searching for buses.');
+        console.error('Error occurred while searching for trains:', err);
+        setError('An error occurred while searching for trains.');
       } finally {
         setLoading(false);
       }
@@ -112,8 +128,8 @@ export const BusFinder = () => {
         </div>
       )}
 
-      {useCurrentLocation && nearestStops.length > 0 && (
-        <NearestStops stops={nearestStops} />
+      {useCurrentLocation && nearestStations.length > 0 && (
+        <NearestStations stations={nearestStations} />
       )}
 
       <SearchResults results={searchResults} />
