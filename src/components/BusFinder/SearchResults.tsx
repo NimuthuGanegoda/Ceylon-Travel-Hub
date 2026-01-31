@@ -1,7 +1,7 @@
 'use client';
 
 import { BusRoute } from '@/data/bus-routes';
-import { Bus, Clock, Calendar, Ticket } from 'lucide-react';
+import { Bus, Clock, Calendar, MapPin } from 'lucide-react';
 
 interface SearchResultsProps {
   results: BusRoute[];
@@ -60,6 +60,12 @@ export default function SearchResults({ results }: SearchResultsProps) {
                     <Calendar className="w-4 h-4 text-gray-400" />
                     <span>{route.frequency}</span>
                   </div>
+                  {route.road && (
+                    <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                      <MapPin className="w-4 h-4 text-gray-400" />
+                      <span>{route.road}</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="pt-4 border-t border-gray-100 dark:border-gray-800">
