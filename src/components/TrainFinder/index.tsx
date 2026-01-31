@@ -103,14 +103,14 @@ export const TrainFinder = () => {
         const normalizedOriginQuery = effectiveOrigin.trim().toLowerCase();
         const normalizedDestinationQuery = destination.trim().toLowerCase();
 
-        // Filter routes based on origin and destination (case-insensitive, exact match)
+        // Filter routes based on origin and destination (case-insensitive, partial match)
         const filteredRoutes = trainRoutes.filter(route => {
           const normalizedRouteOrigin = route.origin.trim().toLowerCase();
           const normalizedRouteDestination = route.destination.trim().toLowerCase();
 
           return (
-            normalizedRouteOrigin === normalizedOriginQuery &&
-            normalizedRouteDestination === normalizedDestinationQuery
+            normalizedRouteOrigin.includes(normalizedOriginQuery) &&
+            normalizedRouteDestination.includes(normalizedDestinationQuery)
           );
         });
 

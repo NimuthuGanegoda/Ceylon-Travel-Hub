@@ -48,7 +48,7 @@ export const trainRoutes: TrainRoute[] = [
     origin: 'Colombo Fort',
     destination: 'Badulla',
     line: 'Main Line',
-    stops: ['Colombo Fort', 'Polgahawela', 'Peradeniya', 'Kandy', 'Hatton', 'Nanu Oya', 'Haputale', 'Ella', 'Badulla'],
+    stops: ['Colombo Fort', 'Polgahawela', 'Kandy', 'Peradeniya', 'Hatton', 'Nanu Oya', 'Haputale', 'Ella', 'Badulla'],
     departureTime: '08:30',
     arrivalTime: '18:00',
     duration: '9h 30m',
