@@ -7,19 +7,21 @@ export const metadata = {
 
 export default function RouteMasterPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="container mx-auto px-4 py-12">
-        <div className="text-center mb-12 animate-fade-in-up">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Sri Lanka RouteMaster
-            </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Live bus fares, route intelligence, and arrival estimates.
-            </p>
+    <main className="min-h-screen pt-[44px] bg-[#fbfbfd] dark:bg-black">
+      <div className="max-w-[980px] mx-auto px-5 py-20">
+        <div className="text-center mb-16 fade-in">
+          <h1 className="apple-headline mb-5">
+            Sri Lanka RouteMaster
+          </h1>
+          <p className="apple-subheadline max-w-2xl mx-auto">
+            Live bus fares, route intelligence, and arrival estimates.
+          </p>
         </div>
 
-        <RouteMaster />
+        <div className="fade-in" style={{ animationDelay: '0.1s' }}>
+          <RouteMaster />
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
