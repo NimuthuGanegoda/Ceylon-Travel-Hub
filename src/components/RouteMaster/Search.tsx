@@ -42,37 +42,37 @@ export default function Search({ onSearch }: SearchProps) {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg w-full max-w-3xl mx-auto border border-gray-100 dark:border-gray-700">
-      <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
-        <Navigation className="text-blue-600" />
+    <div className="card glass p-8 mb-8">
+      <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
+        <Navigation className="text-[#0071e3]" />
         Find Your Route
       </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="relative">
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
               Official Origin (Start)
             </label>
-            <div className="relative">
-              <MapPin className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
+            <div className="relative group">
+              <MapPin className="absolute left-3 top-3.5 h-5 w-5 text-gray-400 group-focus-within:text-[#0071e3] transition-colors" />
               <input
                 type="text"
                 placeholder="e.g. Makumbura"
                 value={origin}
                 onChange={(e) => setOrigin(e.target.value)}
-                className="w-full pl-10 pr-12 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all"
+                className="w-full pl-10 pr-12 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-[#0071e3] focus:border-transparent outline-none transition-all"
                 required
               />
               <button
                 type="button"
                 onClick={handleLocate}
                 disabled={loadingLoc}
-                className="absolute right-2 top-2 p-1.5 text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
+                className="absolute right-2 top-2 p-1.5 text-[#0071e3] hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
                 title="Use Current Location"
               >
                 {loadingLoc ? (
-                  <div className="animate-spin h-5 w-5 border-2 border-blue-600 border-t-transparent rounded-full" />
+                  <div className="animate-spin h-5 w-5 border-2 border-[#0071e3] border-t-transparent rounded-full" />
                 ) : (
                   <Navigation className="h-5 w-5" />
                 )}
@@ -80,18 +80,18 @@ export default function Search({ onSearch }: SearchProps) {
             </div>
           </div>
 
-          <div className="relative">
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
               Official Terminal (End)
             </label>
-            <div className="relative">
-              <MapPin className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
+            <div className="relative group">
+              <MapPin className="absolute left-3 top-3.5 h-5 w-5 text-gray-400 group-focus-within:text-[#0071e3] transition-colors" />
               <input
                 type="text"
                 placeholder="e.g. Galle"
                 value={terminal}
                 onChange={(e) => setTerminal(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all"
+                className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-[#0071e3] focus:border-transparent outline-none transition-all"
                 required
               />
             </div>
@@ -100,7 +100,7 @@ export default function Search({ onSearch }: SearchProps) {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+          className="w-full btn-primary h-12 text-lg font-medium shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2"
         >
           <SearchIcon className="h-5 w-5" />
           Search Routes & Fares
