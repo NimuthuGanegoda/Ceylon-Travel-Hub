@@ -19,7 +19,7 @@ export const busRoutes: BusRoute[] = [
   // --- Kandy Road (A1) Routes ---
   {
     id: 'r1',
-    number: '01',
+    number: '1',
     name: 'Colombo-Kandy Intercity',
     origin: 'Colombo',
     destination: 'Kandy',
@@ -34,7 +34,7 @@ export const busRoutes: BusRoute[] = [
   },
   {
     id: 'r1-ord',
-    number: '01',
+    number: '1',
     name: 'Colombo-Kandy',
     origin: 'Colombo',
     destination: 'Kandy',
@@ -49,7 +49,7 @@ export const busRoutes: BusRoute[] = [
   },
   {
     id: 'r1-kegalle',
-    number: '01',
+    number: '1',
     name: 'Colombo-Kegalle',
     origin: 'Colombo',
     destination: 'Kegalle',
