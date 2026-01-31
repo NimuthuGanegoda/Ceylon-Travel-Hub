@@ -418,5 +418,165 @@ export const busRoutes: BusRoute[] = [
     frequency: 'every 4 hours',
     operator: 'Sri Lanka Transport Board',
     type: 'ordinary'
+  },
+
+  // --- East Coast Routes ---
+  {
+    id: 'r48',
+    number: '48',
+    name: 'Colombo-Batticaloa',
+    origin: 'Colombo',
+    destination: 'Batticaloa',
+    road: 'Ambepussa-Trincomalee (A6)',
+    stops: ['Colombo Fort', 'Kurunegala', 'Dambulla', 'Habarana', 'Polonnaruwa', 'Valachchenai', 'Batticaloa'],
+    departureTime: '19:00',
+    arrivalTime: '03:00',
+    fare: 1100,
+    frequency: 'every 2 hours',
+    operator: 'Private / SLTB',
+    type: 'ordinary'
+  },
+  {
+    id: 'r98',
+    number: '98',
+    name: 'Colombo-Ampara',
+    origin: 'Colombo',
+    destination: 'Ampara',
+    road: 'A4 / A25',
+    stops: ['Colombo Fort', 'Avissawella', 'Ratnapura', 'Pelmadulla', 'Udawalawe', 'Thanamalwila', 'Wellawaya', 'Monaragala', 'Ampara'],
+    departureTime: '20:00',
+    arrivalTime: '04:30',
+    fare: 1250,
+    frequency: 'daily',
+    operator: 'SLTB / Private',
+    type: 'ordinary'
+  },
+
+  // --- Southern Coastal Extension ---
+  {
+    id: 'r32',
+    number: '32',
+    name: 'Colombo-Kataragama',
+    origin: 'Colombo',
+    destination: 'Kataragama',
+    road: 'Galle Road (A2)',
+    stops: ['Colombo Fort', 'Galle', 'Matara', 'Tangalle', 'Ambalantota', 'Hambantota', 'Tissamaharama', 'Kataragama'],
+    departureTime: '04:00',
+    arrivalTime: '11:00',
+    fare: 950,
+    frequency: 'every 1 hour',
+    operator: 'Private / SLTB',
+    type: 'ordinary'
+  },
+
+  // --- North West Routes ---
+  {
+    id: 'r04-mannar',
+    number: '04',
+    name: 'Colombo-Mannar',
+    origin: 'Colombo',
+    destination: 'Mannar',
+    road: 'A3 / A14',
+    stops: ['Colombo Fort', 'Negombo', 'Chilaw', 'Puttalam', 'Silavathurai', 'Mannar'],
+    departureTime: '08:00',
+    arrivalTime: '15:00',
+    fare: 900,
+    frequency: 'twice daily',
+    operator: 'SLTB',
+    type: 'ordinary'
+  },
+
+  // --- Hill Country Inter-Provincial ---
+  {
+    id: 'r43',
+    number: '43',
+    name: 'Kandy-Anuradhapura',
+    origin: 'Kandy',
+    destination: 'Anuradhapura',
+    road: 'A9',
+    stops: ['Kandy', 'Matale', 'Dambulla', 'Kekirawa', 'Anuradhapura'],
+    departureTime: '06:00',
+    arrivalTime: '09:30',
+    fare: 450,
+    frequency: 'every 1 hour',
+    operator: 'Private / SLTB',
+    type: 'ordinary'
+  },
+
+  // --- Colombo Local / Suburban Routes ---
+  {
+    id: 'r120',
+    number: '120',
+    name: 'Colombo-Horana',
+    origin: 'Colombo',
+    destination: 'Horana',
+    road: 'Horana Road',
+    stops: ['Colombo Fort', 'Havelock Town', 'Pamankada', 'Kohuwala', 'Boralesgamuwa', 'Piliyandala', 'Kesbewa', 'Horana'],
+    departureTime: '04:30',
+    arrivalTime: '06:00',
+    fare: 130,
+    frequency: 'every 5 mins',
+    operator: 'Private / SLTB',
+    type: 'ordinary'
+  },
+  {
+    id: 'r177',
+    number: '177',
+    name: 'Kollupitiya-Kaduwela',
+    origin: 'Kollupitiya',
+    destination: 'Kaduwela',
+    road: 'Kaduwela Road',
+    stops: ['Kollupitiya', 'Town Hall', 'Borella', 'Rajagiriya', 'Battaramulla', 'Malabe', 'Kaduwela'],
+    departureTime: '06:00',
+    arrivalTime: '07:30',
+    fare: 100,
+    frequency: 'every 10 mins',
+    operator: 'Private / SLTB',
+    type: 'ordinary'
+  },
+  {
+    id: 'r176',
+    number: '176',
+    name: 'Hettiyawatte-Karagampitiya',
+    origin: 'Hettiyawatte',
+    destination: 'Karagampitiya',
+    road: 'Cross Town',
+    stops: ['Hettiyawatte', 'Kotahena', 'Borella', 'Rajagiriya', 'Nugegoda', 'Kohuwala', 'Karagampitiya'],
+    departureTime: '05:00',
+    arrivalTime: '06:30',
+    fare: 90,
+    frequency: 'every 10 mins',
+    operator: 'Private / SLTB',
+    type: 'ordinary'
+  },
+  {
+    id: 'r255',
+    number: '255',
+    name: 'Mount Lavinia-Kottawa',
+    origin: 'Mount Lavinia',
+    destination: 'Kottawa',
+    road: 'Cross Town',
+    stops: ['Mount Lavinia', 'Katubedda', 'Piliyandala', 'Siddamulla', 'Kottawa'],
+    departureTime: '06:00',
+    arrivalTime: '07:00',
+    fare: 80,
+    frequency: 'every 15 mins',
+    operator: 'Private',
+    type: 'ordinary'
+  },
+  {
+    id: 'r190',
+    number: '190',
+    name: 'Colombo-Meegoda',
+    origin: 'Colombo',
+    destination: 'Meegoda',
+    road: 'Low Level / Malabe',
+    stops: ['Colombo Fort', 'Borella', 'Rajagiriya', 'Battaramulla', 'Malabe', 'Godagama', 'Meegoda'],
+    departureTime: '05:30',
+    arrivalTime: '07:00',
+    fare: 110,
+    frequency: 'every 10 mins',
+    operator: 'Private / SLTB',
+    type: 'ordinary'
   }
 ];
