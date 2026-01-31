@@ -1,0 +1,27 @@
+name: Universal Auto-merge
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  approve-and-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Auto-merge
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          # 1. Force PR to be "Ready" (Fixes "Draft" issues from AI agents)
+          gh pr ready "$PR_URL" || true
+          
+          # 2. Merge immediately AND delete the branch
+          gh pr merge "$PR_URL" --squash --delete-branch
