@@ -32,21 +32,21 @@ export interface Service {
 }
 
 export const siteData = {
-  name: 'Ceylon Drive Hub',
-  tagline: 'Book First. Choose Vehicle Later.',
-  description: 'Reserve your dates now — finalize the exact vehicle (Audi Q2 2018 or future additions) during confirmation.',
+  name: 'Sri Lanka RouteMaster',
+  tagline: 'Find Your Bus. Start Your Journey.',
+  description: 'Comprehensive bus route finder for Sri Lanka. Accurate schedules, routes, and fares for all major destinations.',
   contact: {
-    phone: '+1 555 123 4567',
-    whatsapp: '+15551234567',
-    email: 'rentals@example.com',
+    phone: '+94 11 234 5678',
+    whatsapp: '+94112345678',
+    email: 'info@routemaster.lk',
   },
   features: [
-    '150 PS Turbo',
-    'Virtual Cockpit',
-    'LED Headlights',
-    'Parking Sensors',
-    'Apple CarPlay / Android Auto',
-    '405 L Boot',
+    'Real-time Schedules',
+    'Route Maps',
+    'Fare Calculator',
+    'Stop Locations',
+    'Express Services',
+    'Intercity Connections',
   ],
 };
 
@@ -81,27 +81,27 @@ export const testimonials: Testimonial[] = [];
 
 export const services: Service[] = [
   {
-    id: 'self-drive',
-    title: 'Self-Drive',
-    description: 'Require local licence + IDP if visitor',
-    icon: '🚗',
+    id: 'express',
+    title: 'Express Service',
+    description: 'Fast intercity connections with fewer stops',
+    icon: '🚀',
   },
   {
-    id: 'driver',
-    title: 'Driver',
-    description: 'Driver provided — seating reduced to 4 adults + 1 child',
-    icon: '👨‍✈️',
+    id: 'ordinary',
+    title: 'Ordinary Service',
+    description: 'Affordable travel stopping at all local halts',
+    icon: '🚌',
   },
   {
-    id: 'driver-guide',
-    title: 'Driver-Guide',
-    description: 'Driver can act as guide — add guide fee on request',
-    icon: '🗺️',
+    id: 'luxury',
+    title: 'Luxury / AC',
+    description: 'Comfortable air-conditioned buses for long distance',
+    icon: '❄️',
   },
   {
-    id: 'airport-transfer',
-    title: 'Airport Transfers',
-    description: 'Pickups & Drops — add flight details in booking',
-    icon: '✈️',
+    id: 'night-mail',
+    title: 'Night Mail',
+    description: 'Overnight services for long distance travel',
+    icon: '🌙',
   },
 ];

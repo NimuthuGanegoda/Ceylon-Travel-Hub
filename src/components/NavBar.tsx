@@ -20,14 +20,8 @@ export default function NavBar() {
 
   const navLinks = [
     { href: '/', label: t('home') },
-    { href: '/bus-system', label: 'Bus System' },
-    { href: '/routemaster', label: 'RouteMaster' },
-    { href: '/vehicles', label: t('vehicles') },
-    { href: '/tours', label: t('tours') },
-    { href: '/gallery', label: t('gallery') },
-    { href: '/pricing', label: t('pricing') },
-    { href: '/testimonials', label: t('testimonials') },
-    { href: '/book', label: t('book') },
+    { href: '/bus-system', label: 'Bus Finder' },
+    { href: '/routemaster', label: 'All Routes' },
     { href: '/contact', label: t('contact') },
   ];
 
@@ -45,7 +39,7 @@ export default function NavBar() {
             href="/"
             className="text-[21px] font-semibold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
           >
-            Ceylon Drive Hub
+            Sri Lanka RouteMaster
           </Link>
 
           {/* Desktop Navigation */}
