@@ -134,7 +134,7 @@ export default function HomePage() {
             {t('readyToStartDesc')}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="/book" className="btn-primary">
+            <a href="/bus-system" className="btn-primary">
               {t('bookNow')}
             </a>
             <a href="/contact" className="btn-secondary">
