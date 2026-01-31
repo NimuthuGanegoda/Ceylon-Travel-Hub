@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { MapPin, Navigation, Search as SearchIcon } from 'lucide-react';
+import { searchSchema } from '@/lib/schemas';
 
 interface SearchProps {
   onSearch: (origin: string, terminal: string) => void;
@@ -11,6 +12,7 @@ export default function Search({ onSearch }: SearchProps) {
   const [origin, setOrigin] = useState('');
   const [terminal, setTerminal] = useState('');
   const [loadingLoc, setLoadingLoc] = useState(false);
+  const [errors, setErrors] = useState<{ origin?: string; destination?: string }>({});
 
   const handleLocate = () => {
     if (!navigator.geolocation) {
@@ -25,6 +27,7 @@ export default function Search({ onSearch }: SearchProps) {
         setTimeout(() => {
             setOrigin(`Pettah (Nearby)`);
             setLoadingLoc(false);
+            setErrors(prev => ({ ...prev, origin: undefined }));
         }, 1000);
       },
       (error) => {
@@ -36,9 +39,26 @@ export default function Search({ onSearch }: SearchProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (origin && terminal) {
-      onSearch(origin, terminal);
+    setErrors({});
+
+    // We reuse searchSchema which expects 'destination' but here we have 'terminal'.
+    // Mapping terminal -> destination for validation
+    const validationObject = { origin, destination: terminal };
+    const result = searchSchema.safeParse(validationObject);
+
+    if (!result.success) {
+      const fieldErrors: { origin?: string; destination?: string } = {};
+      result.error.issues.forEach(issue => {
+        if (issue.path[0]) {
+           // @ts-ignore
+           fieldErrors[issue.path[0]] = issue.message;
+        }
+      });
+      setErrors(fieldErrors);
+      return;
     }
+
+    onSearch(origin, terminal);
   };
 
   return (
@@ -60,8 +80,8 @@ export default function Search({ onSearch }: SearchProps) {
                 type="text"
                 placeholder="e.g. Makumbura"
                 value={origin}
-                onChange={(e) => setOrigin(e.target.value)}
-                className="w-full pl-10 pr-12 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-[#0071e3] focus:border-transparent outline-none transition-all"
+                onChange={(e) => { setOrigin(e.target.value); setErrors(prev => ({...prev, origin: undefined})); }}
+                className={`w-full pl-10 pr-12 py-3 bg-gray-50 dark:bg-gray-800 border ${errors.origin ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'} rounded-xl focus:ring-2 focus:ring-[#0071e3] focus:border-transparent outline-none transition-all`}
                 required
               />
               <button
@@ -78,6 +98,7 @@ export default function Search({ onSearch }: SearchProps) {
                 )}
               </button>
             </div>
+            {errors.origin && <p className="text-red-500 text-xs">{errors.origin}</p>}
           </div>
 
           <div className="space-y-2">
@@ -90,11 +111,12 @@ export default function Search({ onSearch }: SearchProps) {
                 type="text"
                 placeholder="e.g. Galle"
                 value={terminal}
-                onChange={(e) => setTerminal(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-[#0071e3] focus:border-transparent outline-none transition-all"
+                onChange={(e) => { setTerminal(e.target.value); setErrors(prev => ({...prev, destination: undefined})); }}
+                className={`w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-gray-800 border ${errors.destination ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'} rounded-xl focus:ring-2 focus:ring-[#0071e3] focus:border-transparent outline-none transition-all`}
                 required
               />
             </div>
+            {errors.destination && <p className="text-red-500 text-xs">{errors.destination}</p>}
           </div>
         </div>
 

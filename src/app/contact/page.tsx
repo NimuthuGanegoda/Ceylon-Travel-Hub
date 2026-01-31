@@ -2,12 +2,21 @@
 
 import Section from '@/components/Section';
 import { siteData } from '@/data/siteData';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { contactSchema } from '@/lib/schemas';
+import { z } from 'zod';
+
+type ContactForm = z.infer<typeof contactSchema>;
 
 export default function ContactPage() {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const { t } = useLanguage();
+
+  const [formData, setFormData] = useState<ContactForm>({ name: '', email: '', message: '' });
+  const [errors, setErrors] = useState<Partial<Record<keyof ContactForm, string>>>({});
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -31,6 +40,60 @@ export default function ContactPage() {
 
     return () => observerRef.current?.disconnect();
   }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    // Clear error for field when modified
+    if (errors[e.target.name as keyof ContactForm]) {
+      setErrors({ ...errors, [e.target.name]: undefined });
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('submitting');
+    setErrors({});
+    setStatusMessage('');
+
+    // Client-side validation
+    const result = contactSchema.safeParse(formData);
+    if (!result.success) {
+      const fieldErrors: Partial<Record<keyof ContactForm, string>> = {};
+      result.error.issues.forEach(issue => {
+        if (issue.path[0]) {
+           fieldErrors[issue.path[0] as keyof ContactForm] = issue.message;
+        }
+      });
+      setErrors(fieldErrors);
+      setStatus('idle');
+      return;
+    }
+
+    try {
+      const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+      const response = await fetch(`${basePath}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        if (response.status === 429) {
+             throw new Error("Too many requests. Please try again later.");
+        }
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      setStatus('success');
+      setStatusMessage('Message sent successfully!');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error: any) {
+      setStatus('error');
+      setStatusMessage(error.message || 'Something went wrong');
+    }
+  };
 
   return (
     <main className="min-h-screen pt-[44px]">
@@ -84,43 +147,60 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Form */}
-          <form className="card space-y-5 scroll-animate opacity-0 translate-y-8 transition-all duration-700" style={{ transitionDelay: '300ms' }}>
+          <form onSubmit={handleSubmit} className="card space-y-5 scroll-animate opacity-0 translate-y-8 transition-all duration-700" style={{ transitionDelay: '300ms' }}>
             <div>
               <label className="block text-[13px] font-normal mb-2 text-gray-700 dark:text-gray-300">
                 {t('name')}
               </label>
               <input
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 type="text"
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1d1d1f] text-gray-900 dark:text-white text-[15px] focus:ring-2 focus:ring-[#0071e3] focus:border-transparent outline-none transition-all"
+                className={`w-full px-4 py-2.5 rounded-xl border ${errors.name ? 'border-red-500' : 'border-gray-300 dark:border-gray-700'} bg-white dark:bg-[#1d1d1f] text-gray-900 dark:text-white text-[15px] focus:ring-2 focus:ring-[#0071e3] focus:border-transparent outline-none transition-all`}
                 placeholder={t('yourNamePlaceholder')}
                 required
               />
+              {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
             </div>
             <div>
               <label className="block text-[13px] font-normal mb-2 text-gray-700 dark:text-gray-300">
                 {t('email')}
               </label>
               <input
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 type="email"
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1d1d1f] text-gray-900 dark:text-white text-[15px] focus:ring-2 focus:ring-[#0071e3] focus:border-transparent outline-none transition-all"
+                className={`w-full px-4 py-2.5 rounded-xl border ${errors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-700'} bg-white dark:bg-[#1d1d1f] text-gray-900 dark:text-white text-[15px] focus:ring-2 focus:ring-[#0071e3] focus:border-transparent outline-none transition-all`}
                 placeholder={t('emailPlaceholder2')}
                 required
               />
+              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
             </div>
             <div>
               <label className="block text-[13px] font-normal mb-2 text-gray-700 dark:text-gray-300">
                 {t('message')}
               </label>
               <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 rows={4}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1d1d1f] text-gray-900 dark:text-white text-[15px] focus:ring-2 focus:ring-[#0071e3] focus:border-transparent outline-none transition-all resize-none"
+                className={`w-full px-4 py-2.5 rounded-xl border ${errors.message ? 'border-red-500' : 'border-gray-300 dark:border-gray-700'} bg-white dark:bg-[#1d1d1f] text-gray-900 dark:text-white text-[15px] focus:ring-2 focus:ring-[#0071e3] focus:border-transparent outline-none transition-all resize-none`}
                 placeholder={t('howCanHelp')}
                 required
               />
+              {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
             </div>
-            <button type="submit" className="btn-primary w-full justify-center text-[15px] py-3.5">
-              {t('sendMessage')}
+            <button type="submit" disabled={status === 'submitting'} className="btn-primary w-full justify-center text-[15px] py-3.5 disabled:opacity-50">
+              {status === 'submitting' ? 'Sending...' : t('sendMessage')}
             </button>
+            {statusMessage && (
+               <p className={`text-center text-sm ${status === 'success' ? 'text-green-500' : 'text-red-500'}`}>
+                 {statusMessage}
+               </p>
+            )}
           </form>
         </div>
       </Section>

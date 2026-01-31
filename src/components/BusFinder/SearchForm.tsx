@@ -1,6 +1,8 @@
 'use client';
 
 import { MapPin, Navigation, Search } from 'lucide-react';
+import { searchSchema } from '@/lib/schemas';
+import { useState } from 'react';
 
 interface SearchFormProps {
   origin: string;
@@ -23,6 +25,42 @@ export default function SearchForm({
   loading,
   onSearch
 }: SearchFormProps) {
+  const [errors, setErrors] = useState<{ origin?: string; destination?: string }>({});
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrors({});
+
+    // If using current location, we only validate destination
+    // If not, we validate both
+    const validationObject = useCurrentLocation
+        ? { origin: 'GPS Location', destination }
+        : { origin, destination };
+
+    const result = searchSchema.safeParse(validationObject);
+
+    if (!result.success) {
+       const fieldErrors: { origin?: string; destination?: string } = {};
+       result.error.issues.forEach(issue => {
+         if (issue.path[0]) {
+            // @ts-ignore
+            fieldErrors[issue.path[0]] = issue.message;
+         }
+       });
+       // If using GPS, ignore origin error
+       if (useCurrentLocation) {
+           delete fieldErrors.origin;
+       }
+
+       if (Object.keys(fieldErrors).length > 0) {
+           setErrors(fieldErrors);
+           return;
+       }
+    }
+
+    onSearch(e);
+  };
+
   return (
     <div className="card glass p-8 mb-8">
       <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
@@ -30,7 +68,7 @@ export default function SearchForm({
         Find Your Bus
       </h2>
 
-      <form onSubmit={onSearch} className="space-y-6">
+      <form onSubmit={handleSearch} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
             <label htmlFor="origin" className="text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -43,10 +81,10 @@ export default function SearchForm({
                   type="text"
                   id="origin"
                   value={origin}
-                  onChange={(e) => setOrigin(e.target.value)}
+                  onChange={(e) => { setOrigin(e.target.value); setErrors({...errors, origin: undefined}); }}
                   placeholder="Enter starting location"
                   disabled={useCurrentLocation}
-                  className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-[#0071e3] focus:border-transparent outline-none transition-all disabled:opacity-50"
+                  className={`w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-gray-800 border ${errors.origin ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'} rounded-xl focus:ring-2 focus:ring-[#0071e3] focus:border-transparent outline-none transition-all disabled:opacity-50`}
                 />
                 <button
                   type="button"
@@ -63,6 +101,7 @@ export default function SearchForm({
                 </button>
               </div>
             </div>
+            {errors.origin && <p className="text-red-500 text-xs">{errors.origin}</p>}
           </div>
 
           <div className="space-y-2">
@@ -75,11 +114,12 @@ export default function SearchForm({
                 type="text"
                 id="destination"
                 value={destination}
-                onChange={(e) => setDestination(e.target.value)}
+                onChange={(e) => { setDestination(e.target.value); setErrors({...errors, destination: undefined}); }}
                 placeholder="Enter destination"
-                className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-[#0071e3] focus:border-transparent outline-none transition-all"
+                className={`w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-gray-800 border ${errors.destination ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'} rounded-xl focus:ring-2 focus:ring-[#0071e3] focus:border-transparent outline-none transition-all`}
               />
             </div>
+            {errors.destination && <p className="text-red-500 text-xs">{errors.destination}</p>}
           </div>
         </div>
 
