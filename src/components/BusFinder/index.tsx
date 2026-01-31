@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { BusRoute, busRoutes } from '@/data/bus-routes';
 import { LocationPoint, findNearestLocations, busStopsData } from '@/utils/location-utils';
 import SearchForm from './SearchForm';
@@ -19,10 +19,17 @@ export const BusFinder = () => {
   const [error, setError] = useState<string>('');
   const [nearestStops, setNearestStops] = useState<{ location: LocationPoint; distance: number }[]>([]);
 
-  // Get user's current location
-  const getCurrentLocation = useCallback(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
+  useEffect(() => {
+    let watchId: number | null = null;
+
+    if (useCurrentLocation) {
+      if (!navigator.geolocation) {
+        setError('Geolocation is not supported by your browser.');
+        setUseCurrentLocation(false);
+        return;
+      }
+
+      watchId = navigator.geolocation.watchPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
 
@@ -44,28 +51,31 @@ export const BusFinder = () => {
           setNearestStops(nearest);
         },
         (error) => {
+          console.error('Geolocation error:', error);
           setError('Unable to retrieve your location. Please enable location services.');
           setUseCurrentLocation(false);
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0
         }
       );
     } else {
-      setError('Geolocation is not supported by your browser.');
-      setUseCurrentLocation(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (useCurrentLocation) {
-      getCurrentLocation();
-    } else {
-      // If unchecked, maybe clear the "Current Location" text if it matches?
-      // For now, let's just clear nearest stops
+      // If unchecked, clear location data
       setNearestStops([]);
       if (origin === 'Current Location') {
         setOrigin('');
       }
+      setCurrentLocation(null);
     }
-  }, [useCurrentLocation, getCurrentLocation]);
+
+    return () => {
+      if (watchId !== null) {
+        navigator.geolocation.clearWatch(watchId);
+      }
+    };
+  }, [useCurrentLocation]); // We don't depend on origin here to avoid loops
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
