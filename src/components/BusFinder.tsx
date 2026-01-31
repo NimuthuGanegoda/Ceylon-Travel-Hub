@@ -143,9 +143,13 @@ const BusFinder = () => {
   };
 
   // Get fare for a specific route and bus type
+  const makeRouteKey = (from: string, to: string): string => {
+    return `${from.trim()} - ${to.trim()}`;
+  };
+
   const getFareForRoute = (routeOrigin: string, routeDestination: string): number | null => {
-    const routeKey = `${routeOrigin.toLowerCase()}-${routeDestination.toLowerCase()}`;
-    const reverseRouteKey = `${routeDestination.toLowerCase()}-${routeOrigin.toLowerCase()}`;
+    const routeKey = makeRouteKey(routeOrigin, routeDestination);
+    const reverseRouteKey = makeRouteKey(routeDestination, routeOrigin);
     
     const routeFare = fares[routeKey] || fares[reverseRouteKey];
     
