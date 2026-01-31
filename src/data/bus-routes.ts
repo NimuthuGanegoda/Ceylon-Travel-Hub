@@ -318,7 +318,7 @@ export const busRoutes: BusRoute[] = [
     name: 'Hanwella-Pettah',
     origin: 'Hanwella',
     destination: 'Colombo',
-    road: 'Low Level Road',
+    road: 'Low Level Road (AB10)',
     stops: ['Hanwella', 'Ranala', 'Kaduwela', 'Ambatale', 'Wellampitiya', 'Orugodawatta', 'Pettah'],
     departureTime: '05:30',
     arrivalTime: '07:00',
@@ -331,7 +331,7 @@ export const busRoutes: BusRoute[] = [
   // --- Existing Long Distance Routes (Updated) ---
   {
     id: 'r5',
-    number: '405',
+    number: '87',
     name: 'Colombo-Jaffna',
     origin: 'Colombo',
     destination: 'Jaffna',
@@ -346,7 +346,7 @@ export const busRoutes: BusRoute[] = [
   },
   {
     id: 'r7',
-    number: '195',
+    number: '49',
     name: 'Colombo-Trincomalee',
     origin: 'Colombo',
     destination: 'Trincomalee',
@@ -376,7 +376,7 @@ export const busRoutes: BusRoute[] = [
   },
   {
     id: 'r10',
-    number: 'N405',
+    number: '87',
     name: 'Night Mail - Colombo-Jaffna',
     origin: 'Colombo',
     destination: 'Jaffna',
@@ -391,11 +391,11 @@ export const busRoutes: BusRoute[] = [
   },
   {
     id: 'r11',
-    number: '04', // Also route 4 technically towards Puttalam then Anuradhapura? Actually 04 goes to Puttalam, 57 to Anuradhapura via Puttalam? Or 15. Let's stick to 401 as originally there.
+    number: '15',
     name: 'Colombo-Anuradhapura',
     origin: 'Colombo',
     destination: 'Anuradhapura',
-    road: 'Puttalam Road',
+    road: 'Puttalam Road (A3)',
     stops: ['Colombo', 'Negombo', 'Chilaw', 'Puttalam', 'Nochchiyagama', 'Anuradhapura'],
     departureTime: '06:00',
     arrivalTime: '11:00',
