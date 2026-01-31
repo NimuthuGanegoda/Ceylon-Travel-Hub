@@ -7,6 +7,8 @@ import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
 import NearestStations from './NearestStations';
 
+const CURRENT_LOCATION_LABEL = 'Current Location';
+
 export const TrainFinder = () => {
   const [origin, setOrigin] = useState<string>('');
   const [destination, setDestination] = useState<string>('');
@@ -26,7 +28,7 @@ export const TrainFinder = () => {
           const userLocation: LocationPoint = {
             lat: latitude,
             lng: longitude,
-            name: `Current Location`
+            name: CURRENT_LOCATION_LABEL
           };
 
           setOrigin(userLocation.name);
@@ -71,7 +73,7 @@ export const TrainFinder = () => {
       getCurrentLocation();
     } else {
       setNearestStations([]);
-      setOrigin(prev => prev === 'Current Location' ? '' : prev);
+      setOrigin(prev => prev === CURRENT_LOCATION_LABEL ? '' : prev);
     }
   }, [useCurrentLocation, getCurrentLocation]);
 
@@ -87,7 +89,7 @@ export const TrainFinder = () => {
         // Determine effective origin, especially when using current GPS location
         let effectiveOrigin = origin;
 
-        if (useCurrentLocation && origin === 'Current Location') {
+        if (useCurrentLocation && origin === CURRENT_LOCATION_LABEL) {
           if (nearestStations && nearestStations.length > 0) {
             // Use the nearest station's name as the actual origin for searching
             effectiveOrigin = nearestStations[0].location.name;
