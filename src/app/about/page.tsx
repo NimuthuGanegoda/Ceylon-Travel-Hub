@@ -15,7 +15,7 @@ export default function AboutPage() {
           <div className="prose prose-lg dark:prose-invert max-w-none">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Our Mission</h2>
             <p className="text-gray-700 dark:text-gray-300 mb-6">
-              Sri Lanka Bus Finder is designed to simplify public transportation in Sri Lanka. We understand how challenging it can be to navigate the bus system, especially for locals who don't know all the routes and tourists unfamiliar with the country.
+              Sri Lanka Bus Finder is designed to simplify public transportation in Sri Lanka. We understand how challenging it can be to navigate the bus system, especially for locals who don&apos;t know all the routes and tourists unfamiliar with the country.
             </p>
             
             <p className="text-gray-700 dark:text-gray-300 mb-8">
@@ -95,7 +95,7 @@ export default function AboutPage() {
               Public transportation in Sri Lanka can be confusing without proper guidance. Our bus finder system bridges the gap between passengers and information, making travel more accessible for:
             </p>
             <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-8">
-              <li>Tourists exploring Sri Lanka's beautiful destinations</li>
+              <li>Tourists exploring Sri Lanka&apos;s beautiful destinations</li>
               <li>Students traveling between cities</li>
               <li>Workers commuting for employment</li>
               <li>Anyone looking for affordable transportation options</li>

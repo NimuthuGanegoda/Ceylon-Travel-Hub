@@ -108,3 +108,30 @@ export const busStopsData: LocationPoint[] = [
   { lat: 6.8400, lng: 80.9300, name: "Bandarawela Bus Stand", address: "Bandarawela" },
   { lat: 6.9850, lng: 81.0550, name: "Badulla Bus Stand", address: "Badulla" },
 ];
+
+// Sample train stations data for Sri Lanka
+export const trainStationsData: LocationPoint[] = [
+  { lat: 6.9338, lng: 79.8500, name: "Colombo Fort Railway Station", address: "Colombo" },
+  { lat: 6.9205, lng: 79.8705, name: "Maradana Railway Station", address: "Colombo 10" },
+  { lat: 7.2936, lng: 80.6350, name: "Kandy Railway Station", address: "Kandy" },
+  { lat: 6.0336, lng: 80.2150, name: "Galle Railway Station", address: "Galle" },
+  { lat: 5.9482, lng: 80.5353, name: "Matara Railway Station", address: "Matara" },
+  { lat: 6.0371, lng: 80.7523, name: "Beliatta Railway Station", address: "Beliatta" },
+  { lat: 9.6631, lng: 80.0160, name: "Jaffna Railway Station", address: "Jaffna" },
+  { lat: 8.3249, lng: 80.4045, name: "Anuradhapura Railway Station", address: "Anuradhapura" },
+  { lat: 8.5701, lng: 81.2335, name: "Trincomalee Railway Station", address: "Trincomalee" },
+  { lat: 7.7102, lng: 81.6924, name: "Batticaloa Railway Station", address: "Batticaloa" },
+  { lat: 6.9847, lng: 81.0560, name: "Badulla Railway Station", address: "Badulla" },
+  { lat: 6.9634, lng: 80.4608, name: "Nanu Oya Railway Station", address: "Nanu Oya" }, // For Nuwara Eliya
+  { lat: 6.8744, lng: 81.0454, name: "Ella Railway Station", address: "Ella" },
+  { lat: 8.7516, lng: 80.4984, name: "Vavuniya Railway Station", address: "Vavuniya" },
+  { lat: 6.9586, lng: 80.0630, name: "Avissawella Railway Station", address: "Avissawella" },
+  { lat: 6.8407, lng: 79.8967, name: "Dehiwala Railway Station", address: "Dehiwala" },
+  { lat: 6.8293, lng: 79.8820, name: "Mount Lavinia Railway Station", address: "Mount Lavinia" },
+  { lat: 6.7118, lng: 79.9074, name: "Panadura Railway Station", address: "Panadura" },
+  { lat: 6.5829, lng: 79.9612, name: "Kalutara South Railway Station", address: "Kalutara" },
+  { lat: 7.2605, lng: 80.3468, name: "Rambukkana Railway Station", address: "Rambukkana" },
+  { lat: 7.3371, lng: 80.2743, name: "Polgahawela Railway Station", address: "Polgahawela" },
+  { lat: 7.0898, lng: 80.0125, name: "Gampaha Railway Station", address: "Gampaha" },
+  { lat: 7.1584, lng: 80.1118, name: "Veyangoda Railway Station", address: "Veyangoda" },
+];

@@ -1,23 +1,23 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { BusRoute, busRoutes } from '@/data/bus-routes';
-import { LocationPoint, findNearestLocations, busStopsData } from '@/utils/location-utils';
+import { TrainRoute, trainRoutes } from '@/data/train-routes';
+import { LocationPoint, findNearestLocations, trainStationsData } from '@/utils/location-utils';
 import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
-import NearestStops from './NearestStops';
+import NearestStations from './NearestStations';
 
 interface Location extends LocationPoint {}
 
-export const BusFinder = () => {
+export const TrainFinder = () => {
   const [origin, setOrigin] = useState<string>('');
   const [destination, setDestination] = useState<string>('');
   const [useCurrentLocation, setUseCurrentLocation] = useState<boolean>(false);
   const [currentLocation, setCurrentLocation] = useState<Location | null>(null);
-  const [searchResults, setSearchResults] = useState<BusRoute[]>([]);
+  const [searchResults, setSearchResults] = useState<TrainRoute[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
-  const [nearestStops, setNearestStops] = useState<{ location: LocationPoint; distance: number }[]>([]);
+  const [nearestStations, setNearestStations] = useState<{ location: LocationPoint; distance: number }[]>([]);
 
   // Get user's current location
   const getCurrentLocation = useCallback(() => {
@@ -35,13 +35,13 @@ export const BusFinder = () => {
           setCurrentLocation(userLocation);
           setOrigin(userLocation.name);
 
-          // Find nearest bus stops
+          // Find nearest train stations
           const nearest = findNearestLocations(
             { lat: latitude, lng: longitude, name: userLocation.name },
-            busStopsData,
-            3 // Return top 3 nearest stops
+            trainStationsData,
+            3 // Return top 3 nearest stations
           );
-          setNearestStops(nearest);
+          setNearestStations(nearest);
         },
         (error) => {
           setError('Unable to retrieve your location. Please enable location services.');
@@ -58,9 +58,7 @@ export const BusFinder = () => {
     if (useCurrentLocation) {
       getCurrentLocation();
     } else {
-      // If unchecked, maybe clear the "Current Location" text if it matches?
-      // For now, let's just clear nearest stops
-      setNearestStops([]);
+      setNearestStations([]);
       setOrigin(prev => prev === 'Current Location' ? '' : prev);
     }
   }, [useCurrentLocation, getCurrentLocation]);
@@ -75,18 +73,18 @@ export const BusFinder = () => {
     setTimeout(() => {
       try {
         // Filter routes based on origin and destination (case-insensitive)
-        const filteredRoutes = busRoutes.filter(route =>
+        const filteredRoutes = trainRoutes.filter(route =>
           route.origin.toLowerCase().includes(origin.toLowerCase()) &&
           route.destination.toLowerCase().includes(destination.toLowerCase())
         );
 
         if (filteredRoutes.length === 0) {
-          setError('No buses found for the selected route. Please try different locations.');
+          setError('No trains found for the selected route. Please try different stations.');
         }
 
         setSearchResults(filteredRoutes);
       } catch (err) {
-        setError('An error occurred while searching for buses.');
+        setError('An error occurred while searching for trains.');
       } finally {
         setLoading(false);
       }
@@ -112,8 +110,8 @@ export const BusFinder = () => {
         </div>
       )}
 
-      {useCurrentLocation && nearestStops.length > 0 && (
-        <NearestStops stops={nearestStops} />
+      {useCurrentLocation && nearestStations.length > 0 && (
+        <NearestStations stations={nearestStations} />
       )}
 
       <SearchResults results={searchResults} />

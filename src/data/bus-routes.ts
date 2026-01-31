@@ -501,5 +501,52 @@ export const busRoutes: BusRoute[] = [
     frequency: 'every 1 hour',
     operator: 'Private / SLTB',
     type: 'ordinary'
+  },
+
+  // --- Other Major Routes ---
+  {
+    id: 'r06',
+    number: '06',
+    name: 'Colombo-Kurunegala',
+    origin: 'Colombo',
+    destination: 'Kurunegala',
+    road: 'A6',
+    stops: ['Colombo Fort', 'Kadawatha', 'Nittambuwa', 'Warakapola', 'Ambepussa', 'Polgahawela', 'Kurunegala'],
+    departureTime: '05:00',
+    arrivalTime: '08:00',
+    fare: 350,
+    frequency: 'every 20 mins',
+    operator: 'Private / SLTB',
+    type: 'ordinary'
+  },
+  {
+    id: 'r120',
+    number: '120',
+    name: 'Colombo-Horana',
+    origin: 'Colombo',
+    destination: 'Horana',
+    road: 'B84',
+    stops: ['Colombo Fort', 'Thimbirigasyaya', 'Pamankada', 'Kohuwala', 'Boralesgamuwa', 'Piliyandala', 'Kesbewa', 'Kahathuduwa', 'Horana'],
+    departureTime: '05:00',
+    arrivalTime: '06:30',
+    fare: 130,
+    frequency: 'every 10 mins',
+    operator: 'Private / SLTB',
+    type: 'ordinary'
+  },
+  {
+    id: 'r190',
+    number: '190',
+    name: 'Pettah-Meegoda',
+    origin: 'Colombo',
+    destination: 'Meegoda',
+    road: 'High Level Road',
+    stops: ['Pettah', 'Borella', 'Rajagiriya', 'Battaramulla', 'Malabe', 'Athurugiriya', 'Godagama', 'Meegoda'],
+    departureTime: '05:30',
+    arrivalTime: '07:00',
+    fare: 120,
+    frequency: 'every 15 mins',
+    operator: 'Private / SLTB',
+    type: 'ordinary'
   }
 ];
