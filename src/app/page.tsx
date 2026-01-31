@@ -36,7 +36,21 @@ export default function HomePage() {
     });
 
     return () => observerRef.current?.disconnect();
-  }, [searchMode]); // Re-run when mode changes to catch new elements
+  }, []); // Create observer once on mount
+
+  useEffect(() => {
+    // Re-scan for new elements when mode changes and observe them with existing observer
+    if (!observerRef.current) {
+      return;
+    }
+
+    const elements = document.querySelectorAll('.scroll-animate');
+    elements.forEach((el) => {
+      if (!el.classList.contains('animate-in')) {
+        observerRef.current?.observe(el);
+      }
+    });
+  }, [searchMode]);
 
   return (
     <main className="min-h-screen">
@@ -130,7 +144,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center mt-12">
-            <a href={searchMode === 'bus' ? "/bus-system" : "/train-system"} className="btn-secondary inline-block">
+            <a href={searchMode === 'bus' ? "/bus-system" : "/"} className="btn-secondary inline-block">
               {t('exploreTours')}
             </a>
           </div>

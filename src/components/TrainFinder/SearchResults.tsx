@@ -1,7 +1,7 @@
 'use client';
 
 import { TrainRoute } from '@/data/train-routes';
-import { Train, Clock, Calendar, MapPin, Tag } from 'lucide-react';
+import { Train, Clock, Calendar, Tag } from 'lucide-react';
 
 interface SearchResultsProps {
   results: TrainRoute[];
@@ -92,23 +92,24 @@ export default function SearchResults({ results }: SearchResultsProps) {
                         <span className="font-semibold text-gray-900 dark:text-white">Rs. {route.fare.firstClass}</span>
                       </>
                     )}
-                    {route.fare.secondClass && (
-                      <>
-                        <span className="text-gray-600 dark:text-gray-400">2nd:</span>
-                        <span className="font-semibold text-gray-900 dark:text-white">Rs. {route.fare.secondClass}</span>
-                      </>
-                    )}
-                    {route.fare.thirdClass && (
-                      <>
-                        <span className="text-gray-600 dark:text-gray-400">3rd:</span>
-                        <span className="font-semibold text-gray-900 dark:text-white">Rs. {route.fare.thirdClass}</span>
-                      </>
-                    )}
+                    <>
+                      <span className="text-gray-600 dark:text-gray-400">2nd:</span>
+                      <span className="font-semibold text-gray-900 dark:text-white">Rs. {route.fare.secondClass}</span>
+                    </>
+                    <>
+                      <span className="text-gray-600 dark:text-gray-400">3rd:</span>
+                      <span className="font-semibold text-gray-900 dark:text-white">Rs. {route.fare.thirdClass}</span>
+                    </>
                   </div>
                 </div>
 
-                <button className="btn-secondary w-full md:w-auto mt-4 md:mt-0 text-sm py-2">
-                  Check Seats
+                <button
+                  className="btn-secondary w-full md:w-auto mt-4 md:mt-0 text-sm py-2"
+                  disabled
+                  aria-disabled="true"
+                  title="Seat availability checking will be available soon"
+                >
+                  Check Seats (coming soon)
                 </button>
               </div>
             </div>
