@@ -318,7 +318,7 @@ const BusFareTracker = () => {
             )}
 
             {/* Fare Comparison */}
-            {origin && destination && (
+            {destination && (
               <div className="mt-6">
                 <h3 className="text-lg font-semibold text-gray-800 mb-3">Fare Comparison</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
