@@ -23,8 +23,8 @@ const translations = {
     contact: 'Contact',
     
     // Home Page
-    heroTitle: 'Sri Lanka Bus Finder',
-    heroSubtitle: 'Find the best bus routes, schedules, and fares across Sri Lanka. Your journey starts here.',
+    heroTitle: 'Sri Lanka Transport Finder',
+    heroSubtitle: 'Find the best bus and train routes, schedules, and fares across Sri Lanka. Your journey starts here.',
     exploreTours: 'View Routes',
     bookNow: 'Plan Journey',
     exploreToursTitle: 'Explore Routes',
